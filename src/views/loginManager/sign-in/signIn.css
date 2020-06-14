@@ -1,0 +1,98 @@
+.Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.Content {
+  height: 500px;
+  background-color: white;
+  padding: 25px 20px 28px;
+  border-radius: 8px;
+  box-shadow: 0 9px 16px 0 rgba(65, 65, 65, 0.1);
+  background-color: #fff;
+}
+.w-30rem {
+  width: 30rem;
+}
+.login-layout .title {
+  text-align: center;
+  margin: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #888585;
+  background: -webkit-linear-gradient(#19d4a0, #59d028);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.group-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.group-control label {
+  color: #565454;
+  font-size: 14px;
+  font-weight: 600;
+}
+.group-control label span {
+  color: red;
+}
+.group-control input {
+  height: 40px;
+  padding-left: 14px;
+  font-size: 14px;
+  border: 1px solid #b7b7b7;
+  border-radius: 4px;
+}
+
+.group-control input:focus {
+  border: unset;
+  outline: unset;
+  box-shadow: 0 0 1pt 1pt #11c1a1;
+}
+.group-control input::-webkit-input-placeholder {
+  /* Edge */
+  color: #b7b7b7;
+}
+
+.group-control input:-ms-input-placeholder {
+  /* Internet Explorer */
+  color: #b7b7b7;
+}
+
+.group-control input::placeholder {
+  color: #b7b7b7;
+}
+
+.group-control button {
+  height: 40px;
+  border-radius: 4px;
+  outline: unset;
+  border: 0px solid transparent;
+  background: linear-gradient(
+    90deg,
+    rgba(150, 184, 10, 1) 0%,
+    rgba(82, 221, 167, 1) 45%,
+    rgba(21, 176, 209, 1) 92%
+  );
+  font-size: 20px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.mb-4 {
+  margin-bottom: 4rem;
+}
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.mt-65 {
+  margin-top: 65px;
+}
