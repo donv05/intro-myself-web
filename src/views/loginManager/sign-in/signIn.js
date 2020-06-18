@@ -9,7 +9,7 @@ export default class SignIn extends React.Component {
         super(props);
         const userInformation = JSON.parse(localStorage.getItem('userInformation'))
         if (userInformation) {
-            this.props.history.push('/web/dashboard')
+            this.props.history.push('/web ')
         }
         this.state = {
             email: '',
@@ -42,7 +42,7 @@ export default class SignIn extends React.Component {
                     localStorage.setItem('refresh_token', result.data.token);
                     const AUTH_TOKEN =  'Bearer ' + result.data.token
                     axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-                    this.props.history.push('/web/dashboard')
+                    this.props.history.push('/web/home')
                 }
             })
             .catch(function (error) {
@@ -61,8 +61,8 @@ export default class SignIn extends React.Component {
                     </div>
                     <form >
                         <div className="group-control mx-2 mt-65">
-                            <label htmlFor="uname">Username <span>*</span></label>
-                            <input type="text" placeholder="Enter Username" name="uname" value={this.state.email} onChange={this.handleChangeEmail} />
+                            <label htmlFor="username">Username <span>*</span></label>
+                            <input type="text" placeholder="Enter Username" name="username" value={this.state.email} onChange={this.handleChangeEmail} />
                         </div>
                         <div className="group-control mb-4 mx-2">
                             <label htmlFor="psw">Password <span>*</span></label>

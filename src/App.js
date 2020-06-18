@@ -6,6 +6,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import NoMatch from './views/layout/noMatch/noMatch'
 const SignInComponent = React.lazy(() => import('./views/loginManager/sign-in/signIn'));
 const DashboardComponent = React.lazy(() => import('./views/layout/layout'));
 
@@ -15,9 +16,12 @@ function App() {
       <Router>
         <div className="Layout">
           <Switch>
-            <Route path="/web/dashboard" component={DashboardComponent}>
+            <Route path="/web" component={DashboardComponent}>
             </Route>
             <Route exact path="/" component={SignInComponent}>
+            </Route>
+            <Route path="*">
+              <NoMatch />
             </Route>
           </Switch>
         </div>

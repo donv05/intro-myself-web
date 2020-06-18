@@ -5,7 +5,6 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import { Modal, Form, Input, DatePicker } from 'antd';
 import moment from 'moment'
 import axios from '../../../../configurations/axiosConfig'
-const { MonthPicker, RangePicker } = DatePicker;
 
 
 // interface FieldData {
@@ -152,7 +151,7 @@ export default class Skills extends Component {
                         <Form.Item label="Level" name="level" rules={[{ required: true, message: 'Please input Level!', },]}>
                             <Input />
                         </Form.Item>
-                        <Form.Item name="date-picker" label="Experience" name="experience" {...config}>
+                        <Form.Item label="Experience" name="experience" {...config}>
                             <DatePicker disabledDate={this.disabledDate} format='DD/MM/YYYY'/>
                         </Form.Item>
                         <Form.Item {...this.state.tailLayout}>
