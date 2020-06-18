@@ -1,3 +1,54 @@
+.home-photo {
+  display: block;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  /* padding-bottom: calc(100% - 36px); */
+  background-color: #fff;
+  /* border-radius: 1000px; */
+  /* border: 18px solid #fff; */
+  overflow: hidden;
+  -webkit-box-shadow: 0 0 25px 0 rgba(0,0,0,.1);
+  -moz-box-shadow: 0 0 25px 0 rgba(0,0,0,.1);
+  box-shadow: 0 0 25px 0 rgba(0,0,0,.1);
+  height: 400px;
+}
+
+.home-photo .hp-inner {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  border: 16px solid #268208;
+  /* background-position: calc(50% + 0.833333px) calc(50% + 4.17169px); */
+  background-image: url(https://mdn.mozillademos.org/files/6457/mdn_logo_only_color.png); 
+}
+
+.card-info {
+  background-color: #fff;
+  font-family: "Poppins",Helvetica,sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.card-info .title-job {
+  font-size: 16px;
+  color: #aaa;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.card-info .title-name {
+  font-size: 48px;
+  line-height: 56px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
 h5
 {
   margin:0px;

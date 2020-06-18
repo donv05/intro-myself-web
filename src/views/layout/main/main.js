@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './main.css'
 import 'antd/dist/antd.css';
 import Home from './home/home'
-import CV from './cv/cv'
+import AboutMe from './aboutMe/aboutMe'
 import NoMatch from '../noMatch/noMatch'
 import {
     BrowserRouter as Router,
@@ -21,8 +21,8 @@ function Main() {
                 <Route path={match.path +'/home'}>
                     <Home></Home>
                 </Route>
-                <Route path={match.path +'/cv'}>
-                    <CV></CV>
+                <Route path={match.path +'/about-me'}>
+                    <AboutMe></AboutMe>
                 </Route>
                 <Route path="*">
                     <NoMatch />

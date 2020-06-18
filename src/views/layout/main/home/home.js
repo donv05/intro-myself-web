@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Project from '../project/project'
-import AboutMe from '../AboutMe/AboutMe'
+import Introduction from '../introduction/introduction'
 import Skills from '../Skills/Skills'
 
 function Home() {
@@ -358,7 +358,7 @@ function Home() {
         <div className="Row">
             <React.Fragment>
                 <Skills/>
-                <AboutMe/>
+                <Introduction/>
             </React.Fragment>
         </div>
         <div className="Row">

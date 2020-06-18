@@ -40,8 +40,8 @@ function Header(props) {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         <Nav.Link><Link to={`${match.url}/Home`}>Home</Link></Nav.Link>
-                        <Nav.Link><Link to={`${match.url}/cv`}>MyCV</Link></Nav.Link>
-                        <NavDropdown title="User" id="basic-nav-dropdown">
+                        <Nav.Link><Link to={`${match.url}/about-me`}>About Me</Link></Nav.Link>
+                        <NavDropdown title="" id="basic-nav-dropdown">
                             <NavDropdown.Item >Profile</NavDropdown.Item>
                             <NavDropdown.Item onClick={handleClickLogout}>Logout</NavDropdown.Item>
                         </NavDropdown>
