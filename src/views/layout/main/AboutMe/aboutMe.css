@@ -13,7 +13,7 @@
   -webkit-box-shadow: 0 0 25px 0 rgba(0,0,0,.1);
   -moz-box-shadow: 0 0 25px 0 rgba(0,0,0,.1);
   box-shadow: 0 0 25px 0 rgba(0,0,0,.1);
-  height: 400px;
+  height: 600px;
 }
 
 .home-photo .hp-inner {
@@ -21,8 +21,8 @@
   height: 350px;
   border-radius: 50%;
   border: 16px solid #268208;
-  /* background-position: calc(50% + 0.833333px) calc(50% + 4.17169px); */
-  background-image: url(https://mdn.mozillademos.org/files/6457/mdn_logo_only_color.png); 
+  background-position: calc(50% + 0.833333px) calc(50% + 4.17169px);
+  background-image: url(https://www.w3schools.com/w3images/photographer.jpg); 
 }
 
 .card-info {

@@ -7,3 +7,11 @@
 .Header h1 {
   font-size: 50px;
 }
+.navbar-nav {
+  align-items: center;
+}
+
+.navbar-nav a {
+  font-size: 18px;
+  margin-right: 16px;
+}
