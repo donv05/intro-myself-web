@@ -1,12 +1,15 @@
 import localStorageService from './LocalStorageService'
 // First we need to import axios.js
 import axios from 'axios';
-axios.defaults.baseURL = 'https://app1user1cv.herokuapp.com';
+
+// const url = "https://app1user1cv.herokuapp.com"
+const url = "http://localhost:3000"
+axios.defaults.baseURL = url;
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 // Next we make an 'instance' of it
 const instance = axios.create({
     // .. where we make our configurations
-    baseURL: 'https://app1user1cv.herokuapp.com',
+    baseURL: url,
 });
 
 
