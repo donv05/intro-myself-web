@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './main.css'
 import 'antd/dist/antd.css';
 import Home from './home/home'
-import AboutMe from './aboutMe/aboutMe'
+import AboutMe from './AboutMe/AboutMe'
 import NoMatch from '../noMatch/noMatch'
 import {
     BrowserRouter as Router,
