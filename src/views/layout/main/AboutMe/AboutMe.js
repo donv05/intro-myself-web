@@ -35,7 +35,7 @@ function AboutMe() {
       <div className="center animate__animated animate__fadeInLeft">
         <div className="property-card">
           <div className="property-description">
-            <h2 className="animate__animated animate__bounce">Skills</h2>
+            <h2 className="animate__animated animate__bounce">My Skills</h2>
               <div className="py-2">
               </div>
             </div>
