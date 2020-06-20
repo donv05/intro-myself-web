@@ -24,13 +24,23 @@ function AboutMe() {
         </div>
         <div className="col-6 card-info">
           <h2 className="title-job">Software Engineering</h2>
-          <h2 className="title-name">Do Nguyen</h2>
+          <h2 className="title-name">Đô Nguyễn</h2>
           <p>
             My name is Đô, I'm 27 years old. I'm born in a small country it's
             xxx.
           </p>
         </div>
       </div>
+
+      <div className="center animate__animated animate__fadeInLeft">
+        <div className="property-card">
+          <div className="property-description">
+            <h2 className="animate__animated animate__bounce">Skills</h2>
+              <div className="py-2">
+              </div>
+            </div>
+        </div>
+        </div>
       <PromoItem></PromoItem>
     </React.Fragment>
   );

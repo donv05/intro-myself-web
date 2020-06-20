@@ -14,7 +14,6 @@ function Home() {
     axios.get('/project')
         .then((result) => {
             if(result) {
-                console.log(result.data)
                 setProjects(result.data)
             }
         })
@@ -39,7 +38,7 @@ function Home() {
                 <div className="Box-v3-header">
                 </div>
                 {projects ? projects.data.map((items) =>
-                    <Project key={items.id} data={items}/>
+                    <Project key={items._id} data={items}/>
                 ): ''}
             </div>
         </div>
