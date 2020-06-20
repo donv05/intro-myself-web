@@ -13,7 +13,7 @@ function Home() {
     // Update the document title using the browser API
     axios.get('/project')
         .then((result) => {
-            if(result) {
+            if(result && result.data) {
                 setProjects(result.data)
             }
         })
@@ -23,7 +23,7 @@ function Home() {
         .finally(function () {
             // always executed
         });
-  });
+  }, []);
 
   return (
     <React.Fragment>
