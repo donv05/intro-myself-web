@@ -27,6 +27,9 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.login-layout .title h1{
+  text-transform: capitalize !important;
+ }
 
 .group-control {
   display: flex;
