@@ -30,9 +30,13 @@ function Header(props) {
     }
     return (
         <React.Fragment>
-            <div className="Header">
-                <h1>My Website</h1>
-                <p>You think you make it.</p>
+            <div className="header">
+                <div className="txt-inner">
+                <h1>Trust</h1>
+                <p>Muốn trưởng thành, bạn phải cần biết đi qua những gian khó cuộc đời.<br/>
+                    Muốn thành công, bạn cần biết vượt lên chính mình, để được những gì xứng đáng.
+                </p>
+                </div>
             </div>
             <Navbar bg="light" expand="lg">
                 <Navbar.Brand href="#home">X X X</Navbar.Brand>

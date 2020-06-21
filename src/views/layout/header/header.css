@@ -1,11 +1,28 @@
-.Header {
+.header {
   padding: 30px;
   text-align: center;
   background: white;
+  background-image: url("/avatar-header.jpg");
+  background-size: cover;
+  height: 100vh !important;
+  transition: all .2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.Header h1 {
+.header:hover {
+    /* text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); */
+  opacity: 0.9;
+}
+
+.header .txt-inner h1 {
   font-size: 50px;
+  color: white;
+}
+.header .txt-inner p{
+  color: white;
+  font-size: 18px;
 }
 .navbar-nav {
   align-items: center;
@@ -14,4 +31,8 @@
 .navbar-nav a {
   font-size: 16px;
   margin-right: 16px;
+}
+
+.bg-light {
+  background-color: #d1e8d7!important
 }
