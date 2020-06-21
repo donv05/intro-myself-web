@@ -1,0 +1,15 @@
+.layout-project h5{
+    color: #aaa;
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.header-information .text-right .title-date {
+    font-size: 12px !important;
+    text-transform: capitalize !important;
+}
+
+.header-information .title h6 {
+    font-weight: 600;
+    color: green !important;
+}

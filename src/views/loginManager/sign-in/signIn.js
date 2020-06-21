@@ -9,7 +9,7 @@ export default class SignIn extends React.Component {
         super(props);
         const userInformation = JSON.parse(localStorage.getItem('userInformation'))
         if (userInformation) {
-            this.props.history.push('/web ')
+            this.props.history.push('/web/home')
         }
         this.state = {
             email: '',

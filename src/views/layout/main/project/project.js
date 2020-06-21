@@ -1,6 +1,7 @@
 import React, {  } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faUserMinus } from '@fortawesome/free-solid-svg-icons'
+import './project.css'
 
 function Project(props) {
     function formatDateToString (date) {
@@ -15,15 +16,15 @@ function Project(props) {
     }
 
     return (
-        <div className="Box-v3-content Content mt-5">
+        <div className="Box-v3-content Content layout-project my-3">
             <h5>Project Experiences</h5>
             <article>
                 <div className="header-information">
-                    <div className="title txt-uppercase"><h6>{props.data.projectName}</h6></div>
+                    <div className="title txt-project"><h6>{props.data.projectName}</h6></div>
                     <div className="edit text-right">
-                        <span className="pr-3 text-success text-uppercase">{formatDateToString(props.data.startDate)} - present </span>
+                        <span className="pr-3 text-success title-date">{formatDateToString(props.data.startDate)} - present </span>
                         <span className="px-1"><FontAwesomeIcon icon={faEdit} /></span>
-                        <span className="px-1"><FontAwesomeIcon icon={faUserMinus} /></span>
+                        {/* <span className="px-1"><FontAwesomeIcon icon={faUserMinus} /></span> */}
                     </div>
                 </div>
                 <section className="Row row-inline">

@@ -12,7 +12,9 @@ p
 
 .center
 {
-  height:100vh;
+  /* height:100vh; */
+  height: unset !important;
+  margin: 32px 0;
   width:100%;
   display: flex;
   justify-content: center;
@@ -55,9 +57,10 @@ p
   -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  background-image:url('https://cdn.photographylife.com/wp-content/uploads/2017/01/What-is-landscape-photography.jpg');
+  background-image:url('/avatar-1.jpg');
   background-size:cover;
   background-repeat:no-repeat;
+  background-size: cover;
 }
 
 /* Bottom Card Section */
@@ -74,10 +77,19 @@ p
   transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   padding: 0.5em 1em;
   text-align:center;
+
+} 
+.property-description .content {
+  opacity: 0;
+  -webkit-transition:all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition:all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition:all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
+
 .property-description h2  {
     font-size: 3em;
-    font-family: -webkit-pictograph;
+    /* font-family: -webkit-pictograph; */
+    font-weight: 500;
 }
 
 /* Social Icons */
@@ -102,9 +114,16 @@ p
   height:22em;
   padding:0px 1em;
 }
+
+.property-card:hover .property-description .content
+{
+  opacity: 1;
+}
+
 .property-card:hover .property-image
 {
   height:10em;
+  opacity: 0.5;
 }
 
 .property-card:hover .property-social-icons

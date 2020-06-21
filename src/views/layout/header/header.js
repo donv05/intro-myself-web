@@ -39,8 +39,9 @@ function Header(props) {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Link to={`${match.url}/Home`}>Home</Link>
+                        <Link to={`${match.url}/home`}>Home</Link>
                         <Link to={`${match.url}/about-me`}>About Me</Link>
+                        <Link to={`${match.url}/blog`}>Blog</Link>
                         <NavDropdown title="" id="basic-nav-dropdown">
                             <NavDropdown.Item >Profile</NavDropdown.Item>
                             <NavDropdown.Item onClick={handleClickLogout}>Logout</NavDropdown.Item>
