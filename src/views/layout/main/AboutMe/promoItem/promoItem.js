@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { } from 'react';
 import './promoItem.css'
+
 function PromoItem() {
   return (
     <React.Fragment>
       <div className="center animate__animated animate__fadeInLeft">
         <div className="property-card">
-          <a href="#">
+          {/* <a href="#"> */}
             <div className="property-image">
               <div className="property-image-title">
                 {/* <h5>Card Title</h5>  */}
               </div>
             </div>
-          </a>
+          {/* </a> */}
           <div className="property-description">
           <h2 className="animate__animated animate__bounce">Cần Thơ University</h2>
           <div className="py-2 content">

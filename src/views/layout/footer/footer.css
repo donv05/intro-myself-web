@@ -2,8 +2,8 @@
   padding: 20px;
   text-align: center;
   background: #ddd;
-  margin-top: 20px;
-  position: fixed;
+  /* margin-top: 20px; */
+  position: relative;
   left: 0;
   bottom: 0;
   width: 100%;

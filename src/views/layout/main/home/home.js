@@ -13,8 +13,8 @@ function Home() {
     // Update the document title using the browser API
     axios.get('/project')
         .then((result) => {
-            if(result && result.data) {
-                setProjects(result.data)
+            if(result) {
+                setProjects(result)
             }
         })
         .catch(function (error) {

@@ -1,4 +1,4 @@
-.Container {
+.container-login {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,7 +28,7 @@
   -webkit-text-fill-color: transparent;
 }
 .login-layout .title h1{
-  text-transform: capitalize !important;
+  text-transform: none !important;
  }
 
 .group-control {

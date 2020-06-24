@@ -4,18 +4,21 @@ import Header from './header/header'
 import Footer from './footer/footer'
 import Main from './main/main'
 import axios from '../../configurations/axiosConfig'
+import  { Redirect } from 'react-router-dom'
 export default class Dashboard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             error: null,
             isLoaded: false,
-            items: []
+            items: [],
+            userInformation: JSON.parse(localStorage.getItem('userInformation'))
         };
         const userInformation = JSON.parse(localStorage.getItem('userInformation'))
-        if (!userInformation) {
-            this.props.history.push('/')
-        }
+        // if (!userInformation) {
+        //     // this.props.history.push("/")
+        //     this.props.history.push("/login");
+        // }
         this.events = [
             'load',
             'mousemove',
@@ -32,7 +35,8 @@ export default class Dashboard extends React.Component {
         }
         this.setTimeout();
     }
-
+    
+    
     warn() {
         console.log("You will be logged out automatically in 1 minute.");
     }
@@ -97,13 +101,17 @@ export default class Dashboard extends React.Component {
     }
 
     render() {
-        return (
-            <React.Fragment>
-                <Header props={this.props}></Header>
-                <Main></Main>
-                <Footer></Footer>
-            </React.Fragment>
-        );
+        if(this.state.userInformation) {
+            return (
+                <React.Fragment>
+                    <Header props={this.props}></Header>
+                    <Main></Main>
+                    <Footer></Footer>
+                </React.Fragment>
+            );
+        } else  {
+            return <Redirect to={'/login'} />
+        }
     }
 }
 

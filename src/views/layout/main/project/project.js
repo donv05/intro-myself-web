@@ -24,7 +24,7 @@ function Project(props) {
                     <div className="edit text-right">
                         <span className="pr-3 text-success title-date">{formatDateToString(props.data.startDate)} - present </span>
                         <span className="px-1"><FontAwesomeIcon icon={faEdit} /></span>
-                        {/* <span className="px-1"><FontAwesomeIcon icon={faUserMinus} /></span> */}
+                        <span className="px-1"><FontAwesomeIcon icon={faUserMinus} /></span>
                     </div>
                 </div>
                 <section className="Row row-inline">
@@ -65,7 +65,7 @@ function Project(props) {
                 </section>
                 <section className="Row row-inline">
                     <div className="title col-4"><p>Job Title</p></div>
-                    <div className="content col-8"><p>{props.data.projectJobTitles?.[0]}</p></div>
+                    <div className="content col-8"><p>{props.data.projectJobTitles[0]}</p></div>
                 </section>
                 <section className="Row row-inline">
                     <div className="title col-4"><p>Working Process</p></div>

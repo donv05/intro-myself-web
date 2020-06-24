@@ -1,198 +1,185 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import './skills.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
-import { Modal, Form, Input, DatePicker } from 'antd';
+// import { Modal, Form, Input, DatePicker } from 'antd';
 import moment from 'moment'
 import axios from '../../../../configurations/axiosConfig'
+import { toast } from 'react-toastify';
+import { useForm, Controller} from 'react-hook-form';
+
+import {Modal, Button} from 'react-bootstrap';
+import {
+  DatePicker
+} from '@material-ui/pickers';
 
 
-// interface FieldData {
-//     name: string[];
-//     value: any;
-//     touched: boolean;
-//     validating: boolean;
-//     errors: string[];
-// }
+function Skills() {
 
-// interface CustomizedFormProps {
-//     onChange: (fields: FieldData[]) => void;
-//     fields: FieldData[];
-// }
-
-export default class Skills extends Component {
-
-    constructor(props) {
-        super(props)
-        this.state = {
-            visible: false,
-            layout: {
-                labelCol: {
-                    span: 8,
-                },
-                wrapperCol: {
-                    span: 16,
-                },
-            },
-            tailLayout: {
-                wrapperCol: {
-                    offset: 8,
-                    span: 16,
-                },
-            },
-            skills: [],
-            fields: [{ name: ['skillName'], value: 'Ant Design' }, { name: ['level'], value: '1' }, { name: ['experience'], value: '2 years' }],
-            setFields: [{ name: ['skillName'], value: 'Ant Design' }, { name: ['level'], value: '1' }, { name: ['experience'], value: '2 years' }],
-            config: {
-                rules: [{ type: 'object', required: true, message: 'Please select time!' }],
-            }
+    const [visible, setVisible] = useState(false);
+    const [experience, setExperience] = useState('12/12/2020');
+    
+    const [skills, setSkill] = useState(null);
+    const { control, register, handleSubmit, errors } = useForm(
+        {
+          defaultValues: {
+            skillName: '',
+            level: '',
+            experience: '',
+          }
         }
-        this.wrapper = React.createRef();
-    }
+      );
 
-    componentDidMount() {
+    useEffect(() => {
+        // Update the document title using the browser API
         axios.get('/skills')
             .then((result) => {
-                const data = result.data.data.map((item) => {
-                    return { ...item, year: moment(item.experience).fromNow(true) }
-                })
-                this.setState({
-                    skills: data,
-                });
+                if(result) {
+                    const data = result.data.map((item) => {
+                        return { ...item, year: moment(item.experience).fromNow(true) }
+                    })
+                    setSkill(data)
+                }
             })
             .catch(function (error) {
-                console.log(error);
+                console.log(error)
+                toast.error('Error!')
             })
-            .finally(function () {
-                // always executed
-            });
-    }
+    }, []);
 
-    editRow = (id, evt) => {
-        const data = this.state.skills.find((item) => item._id === id)
+    function editRow(id) {
+        console.log(id)
+        const data = skills.find((item) => item._id === id)
         if (data) {
-            this.setState({
-                id: id,
-                visible: true,
-                fields: [{ name: ['skillName'], value: data.skillName }, { name: ['level'], value: data.level }, { name: ['experience'], value: moment(data.experience) }],
-                setFields: [{ name: ['skillName'], value: data.skillName }, { name: ['level'], value: data.level }, { name: ['experience'], value: moment(data.experience) }],
-            });
+            setVisible(true)
+            
         } else {
 
         }
-
     }
 
-    handleOk = (e) => {
-        let data = this.state.fields.reduce((accumulator, item) => {
-            var obj = {};
-            obj[item.name[0]] = item.value;
-            return accumulator = { ...accumulator, ...obj }
-        }, {})
-        const param = { ...data, experience: data.experience.utc().format() }
-        axios.put(`/skills/${this.state.id}`, param)
-            .then((result) => {
-                let updatedData = result.data;
-                updatedData = {...updatedData, year: moment(updatedData.experience).fromNow(true)};
-                const data1 = this.state.skills;
-                console.log('Skills',data1);
-                data1[data1.findIndex((el => el._id===updatedData._id))] = updatedData;
-                console.log('NewSkill',data1);
-                this.setState({
-                    skills:  data1,
-                    visible: false
-                });
+    function handleOk (form ) {
+        console.log(form)
+        //     var obj = {};
+        //     obj[item.name[0]] = item.value;
+        //     return accumulator = { ...accumulator, ...obj }
+        // }, {})
+        // const param = { ...data, experience: data.experience.utc().format() }
+        // axios.put(`/skills/${this.state.id}`, param)
+        //     .then((result) => {
+        //         let updatedData = result;
+        //         updatedData = {...updatedData, year: moment(updatedData.experience).fromNow(true)};
+        //         const data1 = this.state.skills;
+        //         console.log('Skills',data1);
+        //         data1[data1.findIndex((el => el._id===updatedData._id))] = updatedData;
+        //         console.log('NewSkill',data1);
+        //         this.setState({
+        //             skills:  data1,
+        //             visible: false
+        //         });
                
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-            .finally(function () {
-                // always executed
-            });
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     })
+        //     .finally(function () {
+        //         // always executed
+        //     });
     };
 
-    handleCancel = (e) => {
-        this.setState({
-            visible: false,
-        });
+    function handleCancel (e) {
+        setVisible( false);
     };
 
-    onFinish = (values) => {
+    // function disabledDate (current) {
+    //     return current && current.valueOf() > Date.now();
+    // }
 
-    };
-
-    onFinishFailed = (errorInfo) => {
-    };
-
-    onChange = (data) => {
-        this.setState({
-            fields: data,
-        });
-    }
-
-    disabledDate = (current) => {
-        return current && current.valueOf() > Date.now();
-    }
-
-    render() {
-        const config = {
-            rules: [{ type: 'object', required: true, message: 'Please select time!' }],
-        }
-        return (
-            <React.Fragment>
-                <Modal title="Edit Skill" visible={this.state.visible} onOk={this.handleOk} onCancel={this.handleCancel}>
-                    <Form  {...this.state.layout} fields={this.state.fields} onFieldsChange={(changedFields, allFields) => {
-                        this.onChange(allFields);
-                    }} name="basic" initialValues={{ remember: true, }} onFinish={this.onFinish()} onFinishFailed={this.onFinishFailed()} >
-                        <Form.Item label="Skill Name" name="skillName" rules={[{ required: true, message: 'Please input Skill Name!', },]}>
-                            <Input />
-                        </Form.Item>
-                        <Form.Item label="Level" name="level" rules={[{ required: true, message: 'Please input Level!', },]}>
-                            <Input />
-                        </Form.Item>
-                        <Form.Item label="Experience" name="experience" {...config}>
-                            <DatePicker disabledDate={this.disabledDate} format='DD/MM/YYYY'/>
-                        </Form.Item>
-                        <Form.Item {...this.state.tailLayout}>
-                        </Form.Item>
-                    </Form>
-                </Modal>
-                <div className="Box col-6">
-                    <div className="Box-v3-header">
-                        <h1>My Technical Skills</h1>
-                    </div>
-                    <div className="Box-v3-content Content">
-                        <table className="table mts-table">
-                            <thead>
-                                <tr>
-                                    <th>Skill Name</th><th>Level</th>
-                                    <th style={{ width: '150px' }}>Experience</th>
-                                    <th>Edit</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {this.state.skills.map((item) =>
-                                    <tr key={item._id}>
-                                        <td>{item.skillName}</td>
-                                        <td>{item.level}</td>
-                                        <td style={{ width: '150px' }}>
-                                            <div style={{ display: 'inline-flex' }}>
-                                                <span>{item.year}</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div className="mts-edit edit-resume-btn" onClick={this.editRow.bind(this, item._id)}>
-                                                <FontAwesomeIcon icon={faEdit} />
-                                            </div>
-                                        </td>
-                                    </tr>
-                                )}
-                            </tbody>
-                        </table>
+    return (
+        <React.Fragment>
+        <Modal show={visible} onHide={handleCancel}>
+            <Modal.Header closeButton>
+            <Modal.Title>Edit Skill</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+            <form className="form-horizontal" >
+                <div className="form-group">
+                    <label className="col-lg-3 control-label">SkillName <span className="text-danger">*</span></label>
+                    <div className="col-lg-8">
+                    <input className="form-control" type="text"  name="skillName" ref={register({ required: true })}/>
+                    <p className="text-danger mt-1">{errors.skillName && 'Skill Name is required.'}</p>
                     </div>
                 </div>
-            </React.Fragment>
-        )
-    }
+                <div className="form-group">
+                    <label className="col-lg-3 control-label">Level <span className="text-danger">*</span></label>
+                    <div className="col-lg-8">
+                    <input className="form-control" type="number"  name="level" ref={register({ required: true })}/>
+                    <p className="text-danger mt-1">{errors.level && 'Level is required.'}</p>
+                    </div>
+                </div> 
+                <div className="form-group">
+                    <label className="col-lg-3 control-label">Year <span className="text-danger">*</span></label>
+                    <div className="col-lg-8">
+                         <Controller
+                            as={DatePicker}
+                            control={control}
+                            format="DD/MM/yyyy"
+                            name="experience"
+                            defaultValue = {experience}
+                            onChange={args => setExperience(new Date() + 1)}
+                            rules={{ required: true }}
+                        />
+                        <p className="text-danger mt-1">{errors.experience && 'Experience is required.'}</p>
+                    </div>
+                </div>
+            </form>
+            </Modal.Body>
+            <Modal.Footer>
+            <Button variant="secondary" onClick={handleCancel}>
+                Close
+            </Button>
+            <Button variant="primary" onClick={handleSubmit(data => console.log(data))}>
+                Save Changes
+            </Button>
+            </Modal.Footer>
+        </Modal>
+        <div className="Box col-6">
+            <div className="Box-v3-header">
+                <h1>My Technical Skills</h1>
+            </div>
+            <div className="Box-v3-content Content">
+                <table className="table mts-table">
+                    <thead>
+                        <tr>
+                            <th>Skill Name</th><th>Level</th>
+                            <th style={{ width: '150px' }}>Experience</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {skills? skills.map((item) =>
+                            <tr key={item._id}>
+                                <td>{item.skillName}</td>
+                                <td>{item.level}</td>
+                                <td style={{ width: '150px' }}>
+                                    <div style={{ display: 'inline-flex' }}>
+                                        <span>{item.year}</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div className="mts-edit edit-resume-btn" onClick={() => editRow(item._id)}>
+                                        <FontAwesomeIcon icon={faEdit} />
+                                    </div>
+                                </td>
+                            </tr>
+                        ): null}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </React.Fragment>
+    )
 }
+
+
+export default Skills

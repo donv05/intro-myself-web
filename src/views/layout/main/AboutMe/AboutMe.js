@@ -36,22 +36,22 @@ function AboutMe() {
       <PromoItem></PromoItem>
       <div className="center animate__animated animate__fadeInLeft">
         <div className="property-card">
-        <a href="#">
+        {/* <a> */}
             <div className="property-image">
               <div className="property-image-title">
                 {/* <h5>Card Title</h5>  */}
               </div>
             </div>
-          </a>
+          {/* </a> */}
           <div className="property-description">
             <h2 className="animate__animated animate__bounce">Skills</h2>
               <div className="py-2 content">
-                <img src={'/angular.png'}  className="icon-lg mx-4"/>
-                <img src={'/nodejs.png'}  className="icon-lg mx-4"/>
-                <img src={'/reactjs.png'}  className="icon-lg mx-4"/>
-                <img src={'/css.png'}  className="icon-lg mx-4"/>
-                <img src={'/icon-html.png'}  className="icon-lg mx-4"/>
-                <img src={'/icon-express.png'}  className="icon-lg mx-4"/>
+                <img alt="img" src={'/angular.png'}  className="icon-lg mx-4"/>
+                <img alt="img" src={'/nodejs.png'}  className="icon-lg mx-4"/>
+                <img alt="img" src={'/reactjs.png'}  className="icon-lg mx-4"/>
+                <img alt="img" src={'/css.png'}  className="icon-lg mx-4"/>
+                <img alt="img" src={'/icon-html.png'}  className="icon-lg mx-4"/>
+                <img alt="img" src={'/icon-express.png'}  className="icon-lg mx-4"/>
               </div>
             </div>
         </div>
@@ -62,13 +62,13 @@ function AboutMe() {
         <div className="col-6">
           <div className="center animate__animated animate__fadeInLeft">
           <div className="property-card">
-          <a href="#">
+          {/* <a href="#"> */}
               <div className="property-image">
                 <div className="property-image-title">
                   {/* <h5>Card Title</h5>  */}
                 </div>
               </div>
-            </a>
+            {/* </a> */}
             <div className="property-description">
               <h2 className="animate__animated animate__bounce">Contact</h2>
                 <div className="py-2 content">
@@ -84,13 +84,13 @@ function AboutMe() {
         <div className="col-6">
           <div className="center animate__animated animate__fadeInLeft">
           <div className="property-card">
-          <a href="#">
+          {/* <a href="#"> */}
               <div className="property-image">
                 <div className="property-image-title">
                   {/* <h5>Card Title</h5>  */}
                 </div>
               </div>
-            </a>
+            {/* </a> */}
             <div className="property-description">
               <h2 className="animate__animated animate__bounce">Other</h2>
                 <div className="py-2 content">

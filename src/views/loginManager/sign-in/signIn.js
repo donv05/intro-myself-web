@@ -1,80 +1,72 @@
 import React from 'react';
 import './signIn.css';
 import axios from '../../../configurations/axiosConfig'
+import { toast } from 'react-toastify';
+import { useForm } from 'react-hook-form';
+import { useHistory } from "react-router"
+import { Redirect } from 'react-router-dom';
 
+function SignIn(props) {
 
-
-export default class SignIn extends React.Component {
-    constructor(props) {
-        super(props);
-        const userInformation = JSON.parse(localStorage.getItem('userInformation'))
-        if (userInformation) {
-            this.props.history.push('/web/home')
+    const { register, handleSubmit, errors } = useForm(
+        {
+          defaultValues: {
+            username: '',
+            psw: '',
+          }
         }
-        this.state = {
-            email: '',
-            password: ''
-        };
-        this.handleChangePassword = this.handleChangePassword.bind(this);
-    }
+    );
 
-    componentDidMount() {
-    }
-
-    handleChangeEmail = (event) => {
-        this.setState({ email: event.target.value });
-    }
-
-    handleChangePassword(event) {
-        this.setState({ password: event.target.value });
-    }
-
-    handleSubmit = (event) => {
-        axios.post('/users/login', { email: this.state.email, password: this.state.password })
+    function login (data){
+        axios.post('/users/login', { email: data.username, password: data.psw })
             .then((result) => {
                 if (result) {
-                    this.setState({
-                        isLoaded: true,
-                        information: result
-                    });
-                    localStorage.setItem('userInformation', JSON.stringify(result.data));
-                    localStorage.setItem('token', result.data.token);
-                    localStorage.setItem('refresh_token', result.data.token);
-                    const AUTH_TOKEN =  'Bearer ' + result.data.token
+                    localStorage.setItem('userInformation', JSON.stringify(result));
+                    localStorage.setItem('token', result.token);
+                    localStorage.setItem('refresh_token', result.token);
+                    const AUTH_TOKEN =  'Bearer ' + result.token
                     axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-                    this.props.history.push('/web/home')
+                    props.history.push('/web/home')
                 }
             })
-            .catch(function (error) {
-                console.log(error);
+            .catch( (error) => {
+                if(error && error.data){
+                    toast.error(error.data.message)
+                }
             })
             .finally(function () {
             });
     }
 
-    render() {
+    if(!JSON.parse(localStorage.getItem('userInformation'))) {
         return (
-            <div className="Container">
+            <div className="container-login">
                 <div className="login-layout Content w-30rem">
                     <div className="title">
-                        <h1>Sign In</h1>
+                        <h1>Sign in</h1>
                     </div>
                     <form >
                         <div className="group-control mx-2 mt-65">
                             <label htmlFor="username">Username <span>*</span></label>
-                            <input type="text" placeholder="Enter Username" name="username" value={this.state.email} onChange={this.handleChangeEmail} />
+                            <input type="text" placeholder="Enter Username" name="username" ref={register({ required: true })} />
+                            <p className="text-danger mt-1">{errors.username && 'Username is required'}</p>
                         </div>
                         <div className="group-control mb-4 mx-2">
                             <label htmlFor="psw">Password <span>*</span></label>
-                            <input type="password" placeholder="Enter Password" name="psw" value={this.state.password} onChange={this.handleChangePassword} ></input>
+                            <input type="password" placeholder="Enter Password" name="psw" ref={register({ required: true })} />
+                            <p className="text-danger mt-1">{errors.psw && 'Password is required'}</p>
                         </div>
                         <div className="group-control mx-2">
-                            <button type="button" onClick={this.handleSubmit}>Login</button>
+                            <button type="button" onClick={handleSubmit(login)}>Login</button>
                         </div>
                     </form>
                 </div>
             </div>
         );
+    }else {
+        return (<Redirect to={'web/home'}></Redirect>)
     }
+    
 }
 
+export default SignIn;

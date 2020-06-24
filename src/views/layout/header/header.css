@@ -36,3 +36,13 @@
 .bg-light {
   background-color: #d1e8d7!important
 }
+
+.nav-avatar {
+  width: 25px;
+  height: 25px;
+  margin-right: 8px;
+}
+
+.hidden {
+  display: none;
+}

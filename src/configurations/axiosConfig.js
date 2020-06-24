@@ -2,8 +2,8 @@ import localStorageService from './LocalStorageService'
 // First we need to import axios.js
 import axios from 'axios';
 
-// const url = "http://localhost:3000"
-const url = "https://app1user1cv.herokuapp.com"
+const url = "http://localhost:3000"
+// const url = "https://app1user1cv.herokuapp.com"
 axios.defaults.baseURL = url;
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 // Next we make an 'instance' of it
@@ -32,14 +32,16 @@ instance.interceptors.request.use(request => {
     // console.log('Request', request);
     // Edit request config
     return request;
-}, error => {
+    
+}, (error) => {
     console.log(error);
     return Promise.reject(error);
 });
 
 instance.interceptors.response.use((response) => {
     // Edit response config
-    return response;
+    // return Promise.resolve(response);
+    return response.data
 }, (error) => {
     const originalRequest = error.config;
     if(error.response.status === 401 && !originalRequest._retry) {
@@ -61,8 +63,8 @@ instance.interceptors.response.use((response) => {
             }
         })
     }
-    console.log('error', error.response.status, originalRequest);
-    return Promise.reject(error);
+    // console.log('error', error.response.status, originalRequest);
+    return Promise.reject(error.response);
 });
 
 export default instance;
