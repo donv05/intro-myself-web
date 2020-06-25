@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react'
 import './skills.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
-// import { Modal, Form, Input, DatePicker } from 'antd';
 import moment from 'moment'
 import axios from '../../../../configurations/axiosConfig'
 import { toast } from 'react-toastify';
 import { useForm, Controller} from 'react-hook-form';
-
 import {Modal, Button} from 'react-bootstrap';
 import {
   DatePicker
@@ -15,23 +13,21 @@ import {
 
 
 function Skills() {
-
-    const [visible, setVisible] = useState(false);
-    const [experience, setExperience] = useState('12/12/2020');
-    
-    const [skills, setSkill] = useState(null);
-    const { control, register, handleSubmit, errors } = useForm(
+    const { register, handleSubmit, errors, control , reset} = useForm(
         {
-          defaultValues: {
-            skillName: '',
-            level: '',
-            experience: '',
-          }
+            defaultValues: {
+                skillName: '',
+                level: '',
+                experience: null,
+            }
         }
-      );
+    );
+    const [visible, setVisible] = useState(false);
+    const [skills, setSkill] = useState(null);
+    const [skillId, setSkillId] = useState(null);
 
     useEffect(() => {
-        // Update the document title using the browser API
+        console.log('re render')
         axios.get('/skills')
             .then((result) => {
                 if(result) {
@@ -44,47 +40,46 @@ function Skills() {
             .catch(function (error) {
                 console.log(error)
                 toast.error('Error!')
-            })
+            }
+        )
     }, []);
 
     function editRow(id) {
-        console.log(id)
         const data = skills.find((item) => item._id === id)
         if (data) {
+            setSkillId(id)
             setVisible(true)
+            const defaultValues = {
+                skillName: data.skillName,
+                level: data.level,
+                experience: moment(data.experience)
+            }
+            reset(defaultValues)
             
-        } else {
-
+            
         }
     }
 
     function handleOk (form ) {
-        console.log(form)
-        //     var obj = {};
-        //     obj[item.name[0]] = item.value;
-        //     return accumulator = { ...accumulator, ...obj }
-        // }, {})
-        // const param = { ...data, experience: data.experience.utc().format() }
-        // axios.put(`/skills/${this.state.id}`, param)
-        //     .then((result) => {
-        //         let updatedData = result;
-        //         updatedData = {...updatedData, year: moment(updatedData.experience).fromNow(true)};
-        //         const data1 = this.state.skills;
-        //         console.log('Skills',data1);
-        //         data1[data1.findIndex((el => el._id===updatedData._id))] = updatedData;
-        //         console.log('NewSkill',data1);
-        //         this.setState({
-        //             skills:  data1,
-        //             visible: false
-        //         });
+        const param = { ...form, experience: form.experience.utc().format() }
+        console.log('param', param)
+        axios.put(`/skills/${skillId}`, param)
+            .then((result) => {
+                console.log('result', result)
+                let updatedData = result;
+                updatedData = {...updatedData, year: moment(updatedData.experience).fromNow(true)};
+                const updateSkills = skills;
+                updateSkills[updateSkills.findIndex((el => el._id===updatedData._id))] = updatedData;
+                console.log('updateSkills', updateSkills)
+                setSkill(updateSkills)
+                setVisible(false)
+                toast.success('Update successfully!')
                
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     })
-        //     .finally(function () {
-        //         // always executed
-        //     });
+            })
+            .catch((error) => {
+                console.log(error)
+                toast.error('Error!')
+            })
     };
 
     function handleCancel (e) {
@@ -102,45 +97,61 @@ function Skills() {
             <Modal.Title>Edit Skill</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-            <form className="form-horizontal" >
-                <div className="form-group">
-                    <label className="col-lg-3 control-label">SkillName <span className="text-danger">*</span></label>
-                    <div className="col-lg-8">
-                    <input className="form-control" type="text"  name="skillName" ref={register({ required: true })}/>
-                    <p className="text-danger mt-1">{errors.skillName && 'Skill Name is required.'}</p>
+                <form className="form-horizontal" >
+                    <div className="form-group">
+                        <label className="col-lg-3 control-label">SkillName <span className="text-danger">*</span></label>
+                        <div className="col-lg-8">
+                        <input className="form-control" type="text" placeholder="Skill"  name="skillName" ref={register({ required: true })}/>
+                        <p className="text-danger mt-1">{errors.skillName && 'Skill Name is required.'}</p>
+                        </div>
                     </div>
-                </div>
-                <div className="form-group">
-                    <label className="col-lg-3 control-label">Level <span className="text-danger">*</span></label>
-                    <div className="col-lg-8">
-                    <input className="form-control" type="number"  name="level" ref={register({ required: true })}/>
-                    <p className="text-danger mt-1">{errors.level && 'Level is required.'}</p>
+                    <div className="form-group">
+                        <label className="col-lg-3 control-label">Level <span className="text-danger">*</span></label>
+                        <div className="col-lg-8">
+                        <input className="form-control" type="number" placeholder="Level"   name="level" ref={register({ required: true })}/>
+                        <p className="text-danger mt-1">{errors.level && 'Level is required.'}</p>
+                        </div>
+                    </div> 
+                    <div className="form-group">
+                        <label className="col-lg-3 control-label">Year <span className="text-danger">*</span></label>
+                        <div className="col-lg-8">
+                            <Controller
+                                as={<DatePicker 
+                                    // inputRef={register({ required: true })}
+                                    // disableToolbar
+                                    // variant="inline"
+                                    // format="MM/dd/yyyy"
+                                    id={"experience"}
+                                    // inputVariant="outlined"
+                                    // label={"Appointment Date"}
+                                    // required={true}
+                                    // helperText={errors["experience"] && "Required..!!"}
+                                    // error={errors["experience"] ? true : false}
+                                    // KeyboardButtonProps={{
+                                    //     "aria-label": "change date"
+                                    // }}
+                                    />}
+                                control={control}
+                                format="DD/MM/yyyy"
+                                name="experience"
+                                rules={{ required: true }}
+                                onChange={([selected]) => {
+                                // Place your logic here
+                                return selected;
+                                }}
+                                // name={"experience"}
+                                // DateSelect value's name is selected
+                                // onChange={([selected]) => selected}
+                                // onChange={([selected]) => {return { value: selected };}}
+                            />
+                            <p className="text-danger mt-1">{errors.experience && 'Experience is required.'}</p>
+                        </div>
                     </div>
-                </div> 
-                <div className="form-group">
-                    <label className="col-lg-3 control-label">Year <span className="text-danger">*</span></label>
-                    <div className="col-lg-8">
-                         <Controller
-                            as={DatePicker}
-                            control={control}
-                            format="DD/MM/yyyy"
-                            name="experience"
-                            defaultValue = {experience}
-                            onChange={args => setExperience(new Date() + 1)}
-                            rules={{ required: true }}
-                        />
-                        <p className="text-danger mt-1">{errors.experience && 'Experience is required.'}</p>
-                    </div>
-                </div>
-            </form>
+                </form>
             </Modal.Body>
             <Modal.Footer>
-            <Button variant="secondary" onClick={handleCancel}>
-                Close
-            </Button>
-            <Button variant="primary" onClick={handleSubmit(data => console.log(data))}>
-                Save Changes
-            </Button>
+                <Button variant="secondary" onClick={handleCancel}>Close</Button>
+                <Button variant="primary" onClick={handleSubmit(handleOk)}>Save Changes</Button>
             </Modal.Footer>
         </Modal>
         <div className="Box col-6">
@@ -162,12 +173,12 @@ function Skills() {
                                 <td>{item.skillName}</td>
                                 <td>{item.level}</td>
                                 <td style={{ width: '150px' }}>
-                                    <div style={{ display: 'inline-flex' }}>
+                                    <div style={{ display: 'inline-flex'}}>
                                         <span>{item.year}</span>
                                     </div>
                                 </td>
                                 <td>
-                                    <div className="mts-edit edit-resume-btn" onClick={() => editRow(item._id)}>
+                                    <div className="mts-edit edit-resume-btn" onClick={() => {editRow(item._id)}}>
                                         <FontAwesomeIcon icon={faEdit} />
                                     </div>
                                 </td>
