@@ -53,7 +53,7 @@
   }
 }
 
-.col-1 {width: 8.33%;}
+/* .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
 .col-3 {width: 25%;}
 .col-4 {width: 33.33%;}
@@ -68,16 +68,14 @@
 [class*="col-"] {
   float: left;
   padding: 8px;
-  /* border: 1px solid red; */
-}
+} */
 
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
+/* @media only screen and (max-width: 768px) {
   [class*="col-"] {
     flex: 0 0 100% !important;
     max-width: 100% !important;
   }
-}
+} */
 
 .Row::after {
   content: "";

@@ -27,19 +27,25 @@ function Home() {
 
   return (
     <React.Fragment>
-        <div className="Row">
-            <React.Fragment>
+        <div className="row">
+            {/* <React.Fragment> */}
+            <div className="col-12 col-sm-12 col-md-6 col-lg-6">
                 <Skills/>
+            </div>
+            <div className="col-12 col-sm-12 col-md-6 col-lg-6">
                 <Introduction/>
-            </React.Fragment>
+            </div>
+                
+                
+            {/* </React.Fragment> */}
         </div>
-        <div className="Row">
+        <div className="row">
             <div className="Box col-12">
                 <div className="Box-v3-header">
                 </div>
                 {projects ? projects.data.map((items) =>
                     <Project key={items._id} data={items}/>
-                ): ''}
+                ): null}
             </div>
         </div>
     </React.Fragment>

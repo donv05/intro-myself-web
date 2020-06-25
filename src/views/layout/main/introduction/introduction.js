@@ -2,7 +2,7 @@ import React, {  } from 'react'
 
 function Introduction() {
     return (
-        <div className="Box col-6">
+        <div className="Box">
             <div className="Box-v3-header">
                 <h1>About Me</h1>
             </div>
