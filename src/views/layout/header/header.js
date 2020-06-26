@@ -51,14 +51,14 @@ function Header(props) {
         <Navbar.Brand href="#home">X X X</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
+          <Nav className="nav-custom mr-auto">
             <Link to={`${match.url}/home`}>Home</Link>
             <Link to={`${match.url}/about-me`}>About Me</Link>
             <Link to={`${match.url}/blog`}>Blog</Link>
             <Dropdown>
                 <Dropdown.Toggle as="div" variant="success" id="dropdown-basic">
-                <img alt="img" src="/person_pin.svg" className="nav-avatar" />
-                <span>{info.user.name}</span>
+                <img alt="img" src="/person.svg" className="nav-avatar" />
+                <span className="header-user">{info.user.name}</span>
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu >
@@ -66,16 +66,6 @@ function Header(props) {
                     <Dropdown.Item onClick={handleClickLogout}>Logout</Dropdown.Item>
                 </Dropdown.Menu>
                 </Dropdown>
-
-                {/* <div className="dropdown">
-                  <div className="dropdown-toggle" variant="success" id="dropdown-basic" onClick={()=>{setHiddenDro(true)}}>
-                    <img alt="img" src="/person_pin.svg" className="nav-avatar"/>
-                      <span>Nhi</span>
-                  </div>
-                  <div className={hiddenDro ? "show": "hidden"}>
-                    <Link className="dropdown-item" onClick={()=>{setHiddenDro(false)}} to={`${match.url}/profile`}>Profile</Link>
-                   </div>
-                </div> */}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -46,3 +46,20 @@
 .hidden {
   display: none;
 }
+.nav-custom a { 
+    color: #0aad43 !important;
+}
+
+#dropdown-basic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+
+.header-user {
+  font-size: fon;
+  font-weight: 600;
+  color: #c53c68;
+  height: 100%;
+  text-align: inherit;
+}

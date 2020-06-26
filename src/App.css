@@ -168,3 +168,7 @@
   font-weight: 500;
   color: #686a6b;
 }
+
+.form-group {
+  margin-bottom: .3rem !important;
+}
