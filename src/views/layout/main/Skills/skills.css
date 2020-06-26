@@ -31,4 +31,13 @@
 
 .MuiInput-underline:after {
     border-bottom: unset !important;
+    background: url(/calendar.svg);
+    background-size: 1.5em 1.5em;
+    width: 8%;
+    height: 100%;
+    background-repeat: no-repeat;
+    top: 23%;
+    left: unset !important;
+    right: 0 !important;
+    transform: unset !important;
 }

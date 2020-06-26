@@ -3,7 +3,6 @@ import './signIn.css';
 import axios from '../../../configurations/axiosConfig'
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
-import { useHistory } from "react-router"
 import { Redirect } from 'react-router-dom';
 
 function SignIn(props) {

@@ -17,7 +17,7 @@ function Header(props) {
   const history = useHistory()
 
   useEffect(() => {
-    // console.log(match)
+    
   });
 
   function handleClickLogout(event) {

@@ -5,6 +5,7 @@ import Footer from './footer/footer'
 import Main from './main/main'
 import axios from '../../configurations/axiosConfig'
 import  { Redirect } from 'react-router-dom'
+import { toast } from 'react-toastify';
 export default class Dashboard extends React.Component {
     constructor(props) {
         super(props);
@@ -14,11 +15,6 @@ export default class Dashboard extends React.Component {
             items: [],
             userInformation: JSON.parse(localStorage.getItem('userInformation'))
         };
-        const userInformation = JSON.parse(localStorage.getItem('userInformation'))
-        // if (!userInformation) {
-        //     // this.props.history.push("/")
-        //     this.props.history.push("/login");
-        // }
         this.events = [
             'load',
             'mousemove',
@@ -38,7 +34,7 @@ export default class Dashboard extends React.Component {
     
     
     warn() {
-        console.log("You will be logged out automatically in 1 minute.");
+        // console.log("You will be logged out automatically in 1 minute.");
     }
     clearTimeout() {
         if (this.warnTimeout) clearTimeout(this.warnTimeout);
@@ -47,22 +43,17 @@ export default class Dashboard extends React.Component {
     }
 
     setTimeout() {
-        // console.log('Set timeout')
         this.warnTimeout = setTimeout(this.warn, 16 * 1000);
         this.logoutTimeout = setTimeout(this.logout, 60 * 1000);
     }
 
     resetTimeout() {
-        // console.log('reset')
         this.clearTimeout();
         this.setTimeout();
     }
 
     logout() {
-        // Send a logout request to the API
-        console.log("Sending a logout request to the API...");
         this.setState({ logginStatus: false });
-        // this.destroy(); // Cleanup
     }
 
     componentDidMount() {
@@ -76,7 +67,7 @@ export default class Dashboard extends React.Component {
                 }
             })
             .catch(function (error) {
-                console.log(error);
+                toast.error("Error!")
             })
             .finally(function () {
                 // always executed
@@ -84,7 +75,6 @@ export default class Dashboard extends React.Component {
     }
     
     handleClickLogout = (event) => {
-        console.log('logOut')
         axios.post('/users/logout')
             .then((result) => {
                 if (result) {
@@ -93,7 +83,7 @@ export default class Dashboard extends React.Component {
                 }
             })
             .catch(function (error) {
-                console.log(error);
+                toast.error("Error!")
             })
             .finally(function () {
                 // always executed

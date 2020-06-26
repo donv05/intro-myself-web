@@ -8,10 +8,7 @@ import { toast } from 'react-toastify';
 function Profile(props) {
     
   const info = JSON.parse(localStorage.getItem('userInformation'));
-  const [linkImg, setLinkImg] = useState('/reactjs.png');
   const [base64Img, setBase64Img] = useState(info? info.user.avatar : '/default-icon.svg');
-  
-
   const { register, handleSubmit, errors } = useForm(
     {
       defaultValues: {
@@ -47,7 +44,6 @@ function Profile(props) {
             toast.success("Update successfully");
         }
     })
-    console.log("Edit User", data);
   }
 
   useEffect(() => {
@@ -58,17 +54,12 @@ function Profile(props) {
   }, [info]);
 
   function handleImgChange(e) {
-    console.log(e)
     const img = e.target.files;
     const reader = new FileReader();
     reader.readAsDataURL(img[0]);
     reader.onloadend = function(loaded) {
         if(loaded && loaded.target.result) {
-          console.log('load')
-          setLinkImg(loaded.target.result)
           setBase64Img(loaded.target.result)
-          console.log(base64Img)
-            
         }
     }
     

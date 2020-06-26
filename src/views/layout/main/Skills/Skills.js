@@ -27,7 +27,6 @@ function Skills() {
     const [skillId, setSkillId] = useState(null);
 
     useEffect(() => {
-        console.log('re render')
         axios.get('/skills')
             .then((result) => {
                 if(result) {
@@ -38,7 +37,6 @@ function Skills() {
                 }
             })
             .catch(function (error) {
-                console.log(error)
                 toast.error('Error!')
             }
         )
@@ -62,24 +60,19 @@ function Skills() {
 
     function handleOk (form ) {
         const param = { ...form, experience: form.experience.utc().format() }
-        console.log('param', param)
         axios.put(`/skills/${skillId}`, param)
-            .then((result) => {
-                console.log('result', result)
-                let updatedData = result;
-                updatedData = {...updatedData, year: moment(updatedData.experience).fromNow(true)};
-                const updateSkills = skills;
-                updateSkills[updateSkills.findIndex((el => el._id===updatedData._id))] = updatedData;
-                console.log('updateSkills', updateSkills)
-                setSkill(updateSkills)
-                setVisible(false)
+        .then((result) => {
+            let updatedData = result;
+            updatedData = {...updatedData, year: moment(updatedData.experience).fromNow(true)};
+            const updateSkills = skills;
+            updateSkills[updateSkills.findIndex((el => el._id===updatedData._id))] = updatedData;
+            setSkill(updateSkills)
+            setVisible(false)
                 toast.success('Update successfully!')
-               
-            })
-            .catch((error) => {
-                console.log(error)
-                toast.error('Error!')
-            })
+        })
+        .catch((error) => {
+            toast.error('Error!')
+        })
     };
 
     function handleCancel (e) {
@@ -99,28 +92,32 @@ function Skills() {
             <Modal.Body>
                 <form className="form-horizontal" >
                     <div className="form-group">
-                        <label className="col-lg-3 control-label">SkillName <span className="text-danger">*</span></label>
-                        <div className="col-lg-8">
+                        <label className="col-12 control-label">SkillName <span className="text-danger">*</span></label>
+                        <div className="col-12">
                         <input className="form-control" type="text" placeholder="Skill"  name="skillName" ref={register({ required: true })}/>
                         <p className="text-danger mt-1">{errors.skillName && 'Skill Name is required.'}</p>
                         </div>
                     </div>
                     <div className="form-group">
-                        <label className="col-lg-3 control-label">Level <span className="text-danger">*</span></label>
-                        <div className="col-lg-8">
+                        <label className="col-12 control-label">Level <span className="text-danger">*</span></label>
+                        <div className="col-12">
                         <input className="form-control" type="number" placeholder="Level"   name="level" ref={register({ required: true })}/>
                         <p className="text-danger mt-1">{errors.level && 'Level is required.'}</p>
                         </div>
                     </div> 
                     <div className="form-group">
-                        <label className="col-lg-3 control-label">Year <span className="text-danger">*</span></label>
-                        <div className="col-lg-8">
+                        <label className="col-12 control-label">Year <span className="text-danger">*</span></label>
+                        <div className="col-12">
                             <Controller
                                 as={<DatePicker 
+                                    autoOk="true"
                                     // inputRef={register({ required: true })}
                                     // disableToolbar
                                     // variant="inline"
-                                    // format="MM/dd/yyyy"
+                                    cancelLabel=""
+                                    // rightArrowIcon="ReactNode"
+                                    okLabel=""
+                                    maxDate={new Date()}
                                     id={"experience"}
                                     // inputVariant="outlined"
                                     // label={"Appointment Date"}
@@ -139,7 +136,6 @@ function Skills() {
                                 // Place your logic here
                                 return selected;
                                 }}
-                                // name={"experience"}
                                 // DateSelect value's name is selected
                                 // onChange={([selected]) => selected}
                                 // onChange={([selected]) => {return { value: selected };}}
