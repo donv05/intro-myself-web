@@ -4,6 +4,7 @@ import Project from '../project/project'
 import Introduction from '../introduction/introduction'
 import Skills from '../Skills/Skills'
 import axios from '../../../../configurations/axiosConfig'
+import { toast } from 'react-toastify';
 
 function Home() {
   // Declare a new state variable, which we'll call "count"
@@ -18,7 +19,7 @@ function Home() {
             }
         })
         .catch(function (error) {
-            console.log(error);
+            toast.error('Error!')
         })
         .finally(function () {
             // always executed

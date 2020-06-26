@@ -72,7 +72,7 @@ function Profile(props) {
         <hr />
         <div className="row">
           {/* <!-- left column --> */}
-          <div className="col-md-3">
+          <div className="col-md-5">
             <div className="text-center">
               <img
                 src={base64Img}
@@ -87,7 +87,7 @@ function Profile(props) {
             </div>
           </div>
 
-          <div className="col-md-9 personal-info">
+          <div className="col-md-7 personal-info">
             <h3>Personal info</h3>
             <form className="form-horizontal" >
               <div className="form-group">
@@ -133,8 +133,8 @@ function Profile(props) {
               </div>
             </form>
             <div className="form-group">
-                <label className="col-sm-12 col-md-3 control-label"></label>
-                <div className="col-sm-12 col-md-8">
+                <label className="col-12  control-label"></label>
+                <div className="col-12 ">
                   <button type="button" className="btn btn-success mr-3" onClick={handleSubmit(handleUserChange)}>Save Changes</button>
                   <button type="button" className="btn btn-secondary">Cancel</button>
                 </div>

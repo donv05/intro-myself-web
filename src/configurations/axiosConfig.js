@@ -20,7 +20,6 @@ instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlenco
 
 // Also add/ configure interceptors && all the other cool stuff
 instance.interceptors.request.use(request => {
-    // console.log('Request', request);
     // const token = localStorageService.getRefreshToken();
     // if(token) {
     //     return request;
@@ -29,12 +28,10 @@ instance.interceptors.request.use(request => {
     // }
     
     // request.headers.Authorization =  token;
-    // console.log('Request', request);
     // Edit request config
     return request;
     
 }, (error) => {
-    console.log(error);
     return Promise.reject(error);
 });
 
@@ -63,7 +60,6 @@ instance.interceptors.response.use((response) => {
             }
         })
     }
-    // console.log('error', error.response.status, originalRequest);
     return Promise.reject(error.response);
 });
 
