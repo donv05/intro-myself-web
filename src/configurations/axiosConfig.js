@@ -37,13 +37,11 @@ instance.interceptors.request.use(request => {
 
 instance.interceptors.response.use((response) => {
     // Edit response config
-    // return Promise.resolve(response);
     return response.data
 }, (error) => {
     const originalRequest = error.config;
     if(error.response.status === 401 && !originalRequest._retry) {
         originalRequest._retry = true;
-        
         return axios.post('/auth/token',
         {
           "refresh_token": localStorageService.getRefreshToken()

@@ -147,7 +147,7 @@ function Skills() {
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={handleCancel}>Close</Button>
-                <Button variant="primary" onClick={handleSubmit(handleOk)}>Save Changes</Button>
+                <Button variant="success" onClick={handleSubmit(handleOk)}>Save Changes</Button>
             </Modal.Footer>
         </Modal>
         <div className="Box">

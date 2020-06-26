@@ -44,7 +44,7 @@ function Home() {
             <div className="Box col-12">
                 <div className="Box-v3-header">
                 </div>
-                {projects ? projects.data.map((items) =>
+                {(projects && projects.data) ? projects.data.map((items) =>
                     <Project key={items._id} data={items}/>
                 ): null}
             </div>
