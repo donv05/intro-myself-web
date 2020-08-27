@@ -150,11 +150,11 @@ function Skills() {
                 <Button variant="success" onClick={handleSubmit(handleOk)}>Save Changes</Button>
             </Modal.Footer>
         </Modal>
-        <div className="Box">
-            <div className="Box-v3-header">
-                <h1>My Technical Skills</h1>
+        <div className="book-card">
+            <div className="book-card-header">
+                <h1 className="book-card-header__title">My Technical Skills</h1>
             </div>
-            <div className="Box-v3-content Content">
+            <div className="book-card-header-content">
                 <table className="table mts-table">
                     <thead>
                         <tr>

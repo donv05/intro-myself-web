@@ -16,7 +16,7 @@ function Project(props) {
     }
 
     return (
-        <div className="Box-v3-content Content layout-project my-3">
+        <div className="book-card-header-content layout-project my-3">
             <h5>Project Experiences</h5>
             <article>
                 <div className="header-information">
@@ -24,7 +24,7 @@ function Project(props) {
                     <div className="edit text-right">
                         <span className="pr-3 text-success title-date">{formatDateToString(props.data.startDate)} - present </span>
                         <span className="px-1"><FontAwesomeIcon icon={faEdit} /></span>
-                        <span className="px-1"><FontAwesomeIcon icon={faUserMinus} /></span>
+                        {/* <span className="px-1"><FontAwesomeIcon icon={faUserMinus} /></span> */}
                     </div>
                 </div>
                 <div className="px-3">

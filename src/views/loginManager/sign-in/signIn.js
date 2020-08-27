@@ -37,28 +37,61 @@ function SignIn(props) {
             });
     }
 
+    function loginWithGuest (data){
+        data = {
+            username: 'guest@gmail.com',
+            psw: '1234567'
+        }
+        axios.post('/users/login', { email: data.username, password: data.psw })
+            .then((result) => {
+                if (result) {
+                    localStorage.setItem('userInformation', JSON.stringify(result));
+                    localStorage.setItem('token', result.token);
+                    localStorage.setItem('refresh_token', result.token);
+                    const AUTH_TOKEN =  'Bearer ' + result.token
+                    axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+                    props.history.push('/web/home')
+                }
+            })
+            .catch( (error) => {
+                if(error && error.data){
+                    toast.error(error.data.message)
+                }
+            })
+            .finally(function () {
+            });
+    }
+
     if(!JSON.parse(localStorage.getItem('userInformation'))) {
         return (
-            <div className="container-login">
-                <div className="login-layout Content w-30rem">
-                    <div className="title">
+            <div className="login-layout login-layout--modify">
+                <div className="login-layout__content">
+
+                    <div className="login-layout__title">
                         <h1>Sign in</h1>
                     </div>
+
                     <form >
-                        <div className="group-control mx-2 mt-65">
-                            <label htmlFor="username">Username <span>*</span></label>
+
+                        <div className="group-control">
+                            <label className="group-control__title" htmlFor="username">Username <span>*</span></label>
                             <input type="text" placeholder="Enter Username" name="username" ref={register({ required: true })} />
-                            <p className="text-danger mt-1">{errors.username && 'Username is required'}</p>
+                            <p className="group-control__error-ms">{errors.username && 'Username is required'}</p>
                         </div>
-                        <div className="group-control mb-4 mx-2">
-                            <label htmlFor="psw">Password <span>*</span></label>
+
+                        <div className="group-control">
+                            <label className="group-control__title" htmlFor="psw">Password <span>*</span></label>
                             <input type="password" placeholder="Enter Password" name="psw" ref={register({ required: true })} />
-                            <p className="text-danger mt-1">{errors.psw && 'Password is required'}</p>
+                            <p className="group-control__error-ms">{errors.psw && 'Password is required'}</p>
                         </div>
-                        <div className="group-control mx-2">
-                            <button type="button" onClick={handleSubmit(login)}>Login</button>
+
+                        <div className="group-control">
+                            <button  className="btn u-bnt-primary-gradient" type="submit" onClick={handleSubmit(login)}>Login</button>
+                            <button className="btn u-bnt-secondary-gradient" type="button" onClick={handleSubmit(loginWithGuest)}>Guest</button>
                         </div>
-                    </form>
+
+                    </form> 
+
                 </div>
             </div>
         );

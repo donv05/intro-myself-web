@@ -41,9 +41,7 @@ function Home() {
             {/* </React.Fragment> */}
         </div>
         <div className="row">
-            <div className="Box col-12">
-                <div className="Box-v3-header">
-                </div>
+            <div className="book-card col-12">
                 {(projects && projects.data) ? projects.data.map((items) =>
                     <Project key={items._id} data={items}/>
                 ): null}

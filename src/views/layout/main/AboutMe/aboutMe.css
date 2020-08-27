@@ -29,7 +29,7 @@
 
 .card-info {
   background-color: #fff;
-  font-family: "Poppins",Helvetica,sans-serif;
+  /* font-family: "Poppins",Helvetica,sans-serif; */
   display: flex;
   flex-direction: column;
   justify-content: center;

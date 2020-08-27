@@ -5,7 +5,7 @@ import "./header.css";
 import axios from "../../../configurations/axiosConfig";
 // eslint-disable-next-line no-unused-vars
 import { BrowserRouter as Router, Link, useRouteMatch } from "react-router-dom";
-import { useHistory } from "react-router"
+import { useHistory } from "react-router";
 
 function Header(props) {
   // eslint-disable-next-line no-unused-vars
@@ -14,19 +14,17 @@ function Header(props) {
   const [info, setInfo] = useState(
     JSON.parse(localStorage.getItem("userInformation"))
   );
-  const history = useHistory()
+  const history = useHistory();
 
-  useEffect(() => {
-    
-  });
+  useEffect(() => {});
 
   function handleClickLogout(event) {
     axios
       .post("/users/logout")
-      .then(result => {
+      .then((result) => {
         if (result) {
-          localStorage.removeItem("userInformation");
-          history.push("/login");
+            localStorage.removeItem("userInformation");
+            history.push("/login");
         }
       })
       .catch(function (error) {})
@@ -36,18 +34,23 @@ function Header(props) {
   }
   return (
     <React.Fragment>
-      <div className="header">
-        <div className="txt-inner">
-          <h1>Trust</h1>
-          <p>
-            Muốn trưởng thành, bạn phải cần biết đi qua những gian khó cuộc đời.
-            <br />
-            Muốn thành công, bạn cần biết vượt lên chính mình, để được những gì
-            xứng đáng.
-          </p>
+    <div className="page-header --u-zoom-in-image page-header--hover-delay">
+        <div className="header-wrapper">
+            <div className="header-content-wrapper">
+                <h1 className="header-content-wrapper__title">TRUST</h1>
+                <p className="header-content-wrapper__txt">
+                    Muốn trưởng thành, bạn phải cần biết đi qua những gian khó cuộc đời.
+                    <br />
+                    Muốn thành công, bạn cần biết vượt lên chính mình, để được những gì
+                    xứng đáng.
+                </p>
+            </div>
+            <div>
+                <div className="header-wrapper__bar-icon --u--hover-mouse"></div>
+            </div>
         </div>
-      </div>
-      <Navbar bg="light" expand="lg">
+    </div>
+      {/* <Navbar bg="light" expand="lg">
         <Navbar.Brand href="#home">X X X</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -56,19 +59,31 @@ function Header(props) {
             <Link to={`${match.url}/about-me`}>About Me</Link>
             <Link to={`${match.url}/blog`}>Blog</Link>
             <Dropdown>
-                <Dropdown.Toggle as="div" variant="success" id="dropdown-basic">
+              <Dropdown.Toggle as="div" variant="success" id="dropdown-basic">
                 <img alt="img" src="/person.svg" className="nav-avatar" />
                 <span className="header-user">{info.user.name}</span>
-                </Dropdown.Toggle>
+              </Dropdown.Toggle>
 
-                <Dropdown.Menu >
-                    <Link className="dropdown-item" data-dismiss="modal" aria-label="Close" onClick={()=>{setHiddenDro(true)}} to={`${match.url}/profile`}>Profile</Link>
-                    <Dropdown.Item onClick={handleClickLogout}>Logout</Dropdown.Item>
-                </Dropdown.Menu>
-                </Dropdown>
+              <Dropdown.Menu>
+                <Link
+                  className="dropdown-item"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                  onClick={() => {
+                    setHiddenDro(true);
+                  }}
+                  to={`${match.url}/profile`}
+                >
+                  Profile
+                </Link>
+                <Dropdown.Item onClick={handleClickLogout}>
+                  Logout
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </Nav>
         </Navbar.Collapse>
-      </Navbar>
+      </Navbar> */}
     </React.Fragment>
   );
 }

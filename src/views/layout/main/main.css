@@ -1,26 +1,28 @@
 .content-layout {
-  padding: 16px;
-  /* margin-bottom: 62px; */
-  background-color: #f4f4f4 !important;
+    padding: 16px;
+    /* margin-bottom: 62px; */
+    background-color: #f4f4f4 !important;
 }
-.Box-v3-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+.book-card {
+
 }
-.Box-v3-header h1 {
-  font-family: Inter, sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.36px;
-  text-align: left;
-  color: #222122;
-  margin: 0;
+
+.book-card-header__title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
-.content-layout .Box-v3-content {
-  background-color: white !important;
-  border-radius: 15px;
-  box-shadow: 0 9px 16px 0 rgba(65, 65, 65, 0.1);
+
+.book-card-header-content {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var( --u-txt-gray-color);
+    
+    background-color: var(--u-color-white);
+    border-radius: 16px;
+    box-shadow: 0 9px 16px 0 rgba(65, 65, 65, 0.1);
+    padding: 1em;
+    margin: 0;
 }
 .Content {
     height: unset !important;
@@ -31,28 +33,28 @@ table thead tr th {
 }
 
 .row-inline .title p {
-    font-size: 13px;
+    font-size: 1rem;
     font-weight: 400;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.85;
     letter-spacing: normal;
     text-align: left;
-    color: #383f53;
+    color: var(--u-txt-gray-color);
     margin: 0;
     padding-top: 0;
     padding-bottom: 0;
 }
 
 .row-inline .content p {
-    font-size: 13px;
+    font-size: 1rem;
     font-weight: 600;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.85;
     letter-spacing: normal;
     text-align: left;
-    color: #383f53;
+    color: var(--u-txt-gray-color);
     margin: 0;
     padding-top: 0;
     padding-bottom: 0;
@@ -71,3 +73,11 @@ table thead tr th {
 .header-information .edit {
     width: 50%;
 }
+
+/* table  */
+
+.table {
+    font-weight: initial;
+    color: var(--u-txt-gray-color);
+}
+/* /table  */

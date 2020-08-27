@@ -2,8 +2,8 @@ import localStorageService from './LocalStorageService'
 // First we need to import axios.js
 import axios from 'axios';
 
-// const url = "http://localhost:3000"
-const url = "https://app1user1cv.herokuapp.com"
+const url = "http://localhost:3000"
+// const url = "https://app1user1cv.herokuapp.com"
 axios.defaults.baseURL = url;
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 // Next we make an 'instance' of it
@@ -40,7 +40,7 @@ instance.interceptors.response.use((response) => {
     return response.data
 }, (error) => {
     const originalRequest = error.config;
-    if(error.response.status === 401 && !originalRequest._retry) {
+    if(error.response.status === 401 && !originalRequest._retry && localStorageService.getRefreshToken()) {
         originalRequest._retry = true;
         return axios.post('/auth/token',
         {

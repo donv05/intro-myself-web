@@ -125,6 +125,7 @@ function Profile(props) {
                     type="text"
                     name="email"
                     disabled
+                     // eslint-disable-next-line
                     ref={register({ pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ })}
                   />
                   

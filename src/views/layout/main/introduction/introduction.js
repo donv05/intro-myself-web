@@ -2,11 +2,11 @@ import React, {  } from 'react'
 
 function Introduction() {
     return (
-        <div className="Box">
-            <div className="Box-v3-header">
-                <h1>About Me</h1>
+        <div className="book-card">
+            <div className="book-card-header">
+                <h1 className="book-card-header__title">About Me</h1>
             </div>
-            <div className="Box-v3-content Content">
+            <div className="book-card-header-content">
                 <p>
                 “My name is Đô, and I’m currently looking for a job in IT. 
                 I have 3 years of experience working with development. 
