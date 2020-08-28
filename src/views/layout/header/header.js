@@ -34,20 +34,25 @@ function Header(props) {
   }
   return (
     <React.Fragment>
-    <div className="page-header --u-zoom-in-image page-header--hover-delay">
-        <div className="header-wrapper">
+    <div className="page-header page-header--hover-delay">
+        
+        <div className="header-wrapper header-wrapper--zoom-in-image">
             <div className="header-content-wrapper">
                 <h1 className="header-content-wrapper__title">TRUST</h1>
-                <p className="header-content-wrapper__txt">
+                <div className="header-content-wrapper__txt">
                     Muốn trưởng thành, bạn phải cần biết đi qua những gian khó cuộc đời.
                     <br />
                     Muốn thành công, bạn cần biết vượt lên chính mình, để được những gì
                     xứng đáng.
-                </p>
+                </div>
             </div>
-            <div>
-                <div className="header-wrapper__bar-icon --u--hover-mouse"></div>
-            </div>
+            
+            <div className="header-wrapper__bar-icon u--hover-mouse"></div>
+        </div>
+        <div className="page-header-picture">
+            <picture>
+                <img  className="page-header_image " src="/avatar-header.jpg" width="100%" height="100%" ></img>
+            </picture>
         </div>
     </div>
       {/* <Navbar bg="light" expand="lg">

@@ -67,13 +67,17 @@
 }
 
 /* Utility */
-.--u-zoom-in-image:hover {
-    transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+.u-zoom-in-image:hover {
+    transform: scale(1.02); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
-.--u--hover-mouse:hover {
+.u--hover-mouse:hover {
     cursor: pointer;
 }
 
+.u-box-shadow {
+    border-radius: 16px;
+    box-shadow: 0 9px 16px 0 rgba(65, 65, 65, 0.1);
+}
 /* /Utility */
 
 .o-main {

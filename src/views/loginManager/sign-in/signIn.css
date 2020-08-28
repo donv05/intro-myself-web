@@ -37,6 +37,8 @@
     margin-bottom: unset;
     margin-top: 0.5rem;
     color: var(--u-txt-error);
+
+    font-size: 0.7rem;
 }
 
 .group-control {
@@ -90,7 +92,7 @@
     background: var(--u-linear-gradient-green-blue);
     font-size: 20px;
     text-transform: uppercase;
-    color: white;
+    color: var(--u-color-white);
 }
 
 

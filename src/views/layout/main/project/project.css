@@ -11,5 +11,13 @@
 
 .header-information .title h6 {
     font-weight: 600;
-    color: green !important;
+    color: var(--u-txt-eden-color);
+}
+
+.book-card-item--grid {
+    display: grid;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
 }

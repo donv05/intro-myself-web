@@ -152,9 +152,9 @@ function Skills() {
         </Modal>
         <div className="book-card">
             <div className="book-card-header">
-                <h1 className="book-card-header__title">My Technical Skills</h1>
+                <h1 className="book-card-header__title">Skills</h1>
             </div>
-            <div className="book-card-header-content">
+            <div className="book-card-content u-box-shadow">
                 <table className="table mts-table">
                     <thead>
                         <tr>

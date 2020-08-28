@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom';
 
 function SignIn(props) {
 
-    const { register, handleSubmit, errors } = useForm(
+    const { register, handleSubmit, errors, unregister, setError} = useForm(
         {
           defaultValues: {
             username: '',
@@ -38,6 +38,8 @@ function SignIn(props) {
     }
 
     function loginWithGuest (data){
+        unregister('username');
+        unregister('psw');
         data = {
             username: 'guest@gmail.com',
             psw: '1234567'
@@ -61,6 +63,10 @@ function SignIn(props) {
             .finally(function () {
             });
     }
+
+    const onSubmit = handleSubmit(({ username }) => {
+        setError("username", "notMatch", "please choose a different username");
+    });
 
     if(!JSON.parse(localStorage.getItem('userInformation'))) {
         return (
@@ -87,7 +93,8 @@ function SignIn(props) {
 
                         <div className="group-control">
                             <button  className="btn u-bnt-primary-gradient" type="submit" onClick={handleSubmit(login)}>Login</button>
-                            <button className="btn u-bnt-secondary-gradient" type="button" onClick={handleSubmit(loginWithGuest)}>Guest</button>
+                            {/* <button className="btn u-bnt-secondary-gradient" type="button" onClick={onSubmit}>Guest</button> */}
+                            <button className="btn u-bnt-secondary-gradient" type="button" onClick={loginWithGuest}>Guest</button>
                         </div>
 
                     </form> 

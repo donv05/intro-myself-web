@@ -16,8 +16,8 @@ function Project(props) {
     }
 
     return (
-        <div className="book-card-header-content layout-project my-3">
-            <h5>Project Experiences</h5>
+        <div className="book-card-item book-card-content my-3 u-box-shadow">
+            {/* <h5>Project Experiences</h5> */}
             <article>
                 <div className="header-information">
                     <div className="title txt-project"><h6>{props.data.projectName}</h6></div>
@@ -36,10 +36,10 @@ function Project(props) {
                         <div className="title col-4"><p>Team Size</p></div>
                         <div className="content col-8"><p>{props.data.projectTeamSize}</p></div>
                     </section>
-                    <section className="row row-inline">
+                    {/* <section className="row row-inline">
                         <div className="title col-4"><p>URL</p></div>
                         <div className="content col-8"><p>{props.data.projectCompany}</p></div>
-                    </section>
+                    </section> */}
                     <section className="row row-inline">
                         <div className="title col-4"><p>Project Lead</p></div>
                         <div className="content col-8"><p>{props.data.projectLead}</p></div>
@@ -60,22 +60,22 @@ function Project(props) {
                         <div className="title col-4"><p>Skills</p></div>
                         <div className="content col-8"><p>{props.data.projectSkill}</p></div>
                     </section>
-                    <section className="row row-inline">
+                    {/* <section className="row row-inline">
                         <div className="title col-4"><p>Domain</p></div>
                         <div className="content col-8"><p>{props.data.domain}</p></div>
-                    </section>
-                    <section className="row row-inline">
+                    </section> */}
+                    {/* <section className="row row-inline">
                         <div className="title col-4"><p>Job Title</p></div>
                         <div className="content col-8"><p>{props.data.projectJobTitles[0]}</p></div>
-                    </section>
-                    <section className="row row-inline">
+                    </section> */}
+                    {/* <section className="row row-inline">
                         <div className="title col-4"><p>Working Process</p></div>
                         <div className="content col-8"><p>{props.data.workingProcess}</p></div>
-                    </section>
-                    <section className="row row-inline">
+                    </section> */}
+                    {/* <section className="row row-inline">
                         <div className="title col-4"><p>Responsibility</p></div>
                         <div className="content col-8"><p>{props.data.value}</p></div>
-                    </section>
+                    </section> */}
                 </div>
             </article>
         </div>

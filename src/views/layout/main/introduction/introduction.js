@@ -6,7 +6,7 @@ function Introduction() {
             <div className="book-card-header">
                 <h1 className="book-card-header__title">About Me</h1>
             </div>
-            <div className="book-card-header-content">
+            <div className="book-card-content u-box-shadow">
                 <p>
                 “My name is Đô, and I’m currently looking for a job in IT. 
                 I have 3 years of experience working with development. 

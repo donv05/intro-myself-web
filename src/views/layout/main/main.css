@@ -1,5 +1,5 @@
 .content-layout {
-    padding: 16px;
+    padding: 1.5rem 1rem;
     /* margin-bottom: 62px; */
     background-color: #f4f4f4 !important;
 }
@@ -8,22 +8,21 @@
 }
 
 .book-card-header__title {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    font-size: 2.5em;
+    font-weight: normal;
 }
 
-.book-card-header-content {
+.book-card-content {
     font-size: 1rem;
     font-weight: 700;
     color: var( --u-txt-gray-color);
     
     background-color: var(--u-color-white);
-    border-radius: 16px;
-    box-shadow: 0 9px 16px 0 rgba(65, 65, 65, 0.1);
     padding: 1em;
     margin: 0;
 }
+
+
 .Content {
     height: unset !important;
     padding: 16px;
