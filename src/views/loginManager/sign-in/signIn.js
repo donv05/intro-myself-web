@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom';
 
 function SignIn(props) {
 
-    const { register, handleSubmit, errors, unregister, setError} = useForm(
+    const { register, handleSubmit, errors, unregister} = useForm(
         {
           defaultValues: {
             username: '',
@@ -20,12 +20,7 @@ function SignIn(props) {
         axios.post('/users/login', { email: data.username, password: data.psw })
             .then((result) => {
                 if (result) {
-                    localStorage.setItem('userInformation', JSON.stringify(result));
-                    localStorage.setItem('token', result.token);
-                    localStorage.setItem('refresh_token', result.token);
-                    const AUTH_TOKEN =  'Bearer ' + result.token
-                    axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-                    props.history.push('/web/home')
+                    setInformation(result)
                 }
             })
             .catch( (error) => {
@@ -47,12 +42,7 @@ function SignIn(props) {
         axios.post('/users/login', { email: data.username, password: data.psw })
             .then((result) => {
                 if (result) {
-                    localStorage.setItem('userInformation', JSON.stringify(result));
-                    localStorage.setItem('token', result.token);
-                    localStorage.setItem('refresh_token', result.token);
-                    const AUTH_TOKEN =  'Bearer ' + result.token
-                    axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-                    props.history.push('/web/home')
+                    setInformation(result)
                 }
             })
             .catch( (error) => {
@@ -64,9 +54,17 @@ function SignIn(props) {
             });
     }
 
-    const onSubmit = handleSubmit(({ username }) => {
-        setError("username", "notMatch", "please choose a different username");
-    });
+    function setInformation(data) {
+        localStorage.setItem('userInformation', JSON.stringify(data));
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('refresh_token', data.token);
+        const AUTH_TOKEN =  'Bearer ' + data.token
+        axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+        props.history.push('/web/blog')
+    }
+    // const onSubmit = handleSubmit(({ username }) => {
+    //     setError("username", "notMatch", "please choose a different username");
+    // });
 
     if(!JSON.parse(localStorage.getItem('userInformation'))) {
         return (

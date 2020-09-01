@@ -10,6 +10,7 @@
 .book-card-header__title {
     font-size: 2.5em;
     font-weight: normal;
+    margin-bottom: 1rem;
 }
 
 .book-card-content {

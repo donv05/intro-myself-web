@@ -19,7 +19,7 @@ function Main() {
     const match = useRouteMatch();
 
     return (
-        <div className="content-layout">
+        <div className="content-layout xl-main">
             <Switch>
                 <Route path={match.path +'/home'}>
                     <Home></Home>

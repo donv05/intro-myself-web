@@ -4,25 +4,21 @@ import './promoItem.css'
 function PromoItem() {
   return (
     <React.Fragment>
-      <div className="center animate__animated animate__fadeInLeft">
-        <div className="property-card">
-          {/* <a href="#"> */}
-            <div className="property-image">
-              <div className="property-image-title">
-                {/* <h5>Card Title</h5>  */}
-              </div>
+        <div className="card-info card--border">
+            {/* <div className="card-info-header-image">
+                <img></img>
+                <div className="card-info-header-image--title">
+                </div>
+            </div>    */}
+            <div className="card-info-description">
+                <h2 className="card-info-description__title">Cần Thơ University</h2>
+                <div className="card-info-description__content">
+                    <b>Address: <span>Khu II, Đường 3-2, Xuân Khánh, Ninh Kiều, Cần Thơ</span></b>
+                    <p>Trường Đại học Cần Thơ là một trường đại học tại Việt Nam, có vị thế dẫn đầu về đào tạo đa ngành, một trụ cột trong hệ thống giáo dục bậc cao, được Chính phủ xếp vào nhóm trường đại học trọng điểm quốc gia.</p>
+                </div>
+                
             </div>
-          {/* </a> */}
-          <div className="property-description">
-          <h2 className="animate__animated animate__bounce">Cần Thơ University</h2>
-          <div className="py-2 content">
-              <b>Address</b>: <p>Khu II, Đường 3-2, Xuân Khánh, Ninh Kiều, Cần Thơ</p>
-              <p>Trường Đại học Cần Thơ là một trường đại học tại Việt Nam, có vị thế dẫn đầu về đào tạo đa ngành, một trụ cột trong hệ thống giáo dục bậc cao, được Chính phủ xếp vào nhóm trường đại học trọng điểm quốc gia.</p>
-          </div>
-            
-          </div>
         </div>
-      </div>
     </React.Fragment>
   );
 }

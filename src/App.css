@@ -10,7 +10,7 @@
         a (active): #cc0000 (pink)
     */
 
-    /* Background: #f4f4f4 (white) */
+    /* Background: #f4f4f4 (white) */ 
     --bg-color-body: #f4f4f4;
 
     /* background modal  */
@@ -46,6 +46,9 @@
     /* eden color  */
     --u-txt-eden-color :#264E36;
 
+    /* Orange Tiger */
+    --u-orange-tiger: #F96714;
+
     /* Jester Red */
     --u-txt-jester-red-color :#9E1030;
     
@@ -62,7 +65,12 @@
     --u-txt-gray-color: #383f53;
 
     /* book card background color  */
-    --u-color-white: #f4f4f4;
+    --u-color-white: white;
+
+    --u-color-side-var: black;
+
+    /* The color of border card */
+    --u-color-border-info-card : #f1eded;
 
 }
 
@@ -81,7 +89,6 @@
 /* /Utility */
 
 .o-main {
-    background-color: var(--bg-color-body);
     width: 100%;
     height: 100vh;
 }
@@ -174,7 +181,6 @@
     100% { transform: rotate(360deg); }
 }
 
-
 .lds-ripple {
     position: absolute;
     left: 50%;
@@ -183,6 +189,7 @@
     width: 80px;
     height: 80px;
 }
+
 .lds-ripple div {
     position: absolute;
     border: 4px solid red;
@@ -190,9 +197,11 @@
     border-radius: 50%;
     animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
+
 .lds-ripple div:nth-child(2) {
     animation-delay: -0.5s;
 }
+
 @keyframes lds-ripple {
     0% {
         top: 36px;
@@ -211,3 +220,56 @@
 }
 /* /loader  */
 
+
+/* Grid  */
+.u-grid-container {
+    display: grid;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+}
+
+
+.-u-grid-container-column-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+/* /Grid  */
+
+/* Break point  */
+
+:root{
+    /* break point  */
+    --screen-sm: 640px;
+    --screen-md: 768px;
+    --screen-lg: 992px;
+    --screen-ex: 1200px;
+    --screen-max-width: 1200px;
+}
+
+@media (min-width: 640px){
+     
+}
+     
+@media (min-width: 768px){
+
+}
+    
+@media (min-width: 992px){
+
+    .u-grid-container-column-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+     
+@media (min-width: 1200px){
+    .xl-main {
+        max-width: var(--screen-max-width);
+        margin: 0 auto;
+    }
+}
+
+/* /Break point  */
+
+body {
+    background-color: var(--bg-color-body) !important;
+}

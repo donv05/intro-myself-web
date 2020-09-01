@@ -1,10 +1,10 @@
 .Footer {
   padding: 20px;
   text-align: center;
-  background: #ddd;
-  /* margin-top: 20px; */
+  background: transparent;
   position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
+  border-top: 2px solid white;
 }

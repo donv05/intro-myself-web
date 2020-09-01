@@ -69,3 +69,79 @@
     filter: invert();
 }
 
+/* The side navigation menu */
+.side-nav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: var(--u-color-white); /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    z-index: 100;
+    display: none;
+}
+
+.has-side-nav--show {
+    width: 100%;
+    display: block;
+}
+
+.side-nav--modify {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.side-nav-menu-item{
+    margin: 0;
+    display: block;
+    line-height: 1;
+}
+
+.side-nav-menu-item--modifier {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+    font-weight: 500;
+}
+
+.side-nav-menu-item__link {
+    color: var(--u-color-side-var);
+}
+
+.side-nav-sub-menu--modifier {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.side-nav-header--modify {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 2rem;
+    
+}
+
+.side-nav-header_close {
+    background-image: url("/image/header/clear.svg");
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+}
+
+.side-nav-menu-item__link {
+    background: linear-gradient(to right,#dd2424,#dd2424 50%,#191919 50%,#191919 100%);
+    background-size: 200% auto;
+    background-position-x: 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: 0.8s;
+}
+
+.side-nav-menu-item__link:hover {
+    background-position-x: 0%;
+    color: transparent;
+}
+

@@ -5,8 +5,6 @@ import {
   Route,
 } from "react-router-dom";
 import NoMatch from './views/layout/noMatch/noMatch'
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
 import './App.css';
@@ -26,7 +24,7 @@ function App() {
             </Route>
             <Route exact path="/login" component={SignInComponent}>
             </Route>
-            <Route path="*">
+            <Route exact path="*">
               <NoMatch />
             </Route>
           </Switch>
