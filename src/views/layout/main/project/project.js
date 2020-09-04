@@ -7,7 +7,7 @@ function Project(props) {
 
     const userInfo = JSON.parse(localStorage.getItem('userInformation'));
     const roles = userInfo.user.roles;
-    const isEdit = roles.some((item) => [0, 1].includes(item.level));
+    const isEdit = roles ? roles.some((item) => [0, 1].includes(item.level)): false;
 
     function formatDateToString (date) {
         if (date) {
