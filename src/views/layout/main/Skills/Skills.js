@@ -157,7 +157,7 @@ function Skills() {
                 <table className="table mts-table table--sm-responsive">
                     <thead>
                         <tr>
-                            <th>Skill Name</th><th>Level</th>
+                            <th>Name</th><th>Level</th>
                             <th style={{ width: '150px' }}>Experience</th>
                             {isEdit ? <th>Edit</th> : null}
                         </tr>
