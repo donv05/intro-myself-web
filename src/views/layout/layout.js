@@ -57,21 +57,21 @@ export default class Dashboard extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('/users')
-            .then((result) => {
-                if (result) {
-                    this.setState({
-                        isLoaded: true,
-                        items: result
-                    });
-                }
-            })
-            .catch(function (error) {
-                toast.error("Error!")
-            })
-            .finally(function () {
-                // always executed
-            });
+        // axios.get('/users')
+        //     .then((result) => {
+        //         if (result) {
+        //             this.setState({
+        //                 isLoaded: true,
+        //                 items: result
+        //             });
+        //         }
+        //     })
+        //     .catch(function (error) {
+        //         toast.error("Error!")
+        //     })
+        //     .finally(function () {
+        //         // always executed
+        //     });
     }
     
     handleClickLogout = (event) => {

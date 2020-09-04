@@ -4,6 +4,11 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import './project.css'
 
 function Project(props) {
+
+    const userInfo = JSON.parse(localStorage.getItem('userInformation'));
+    const roles = userInfo.user.roles;
+    const isEdit = roles.some((item) => [0, 1].includes(item.level));
+
     function formatDateToString (date) {
         if (date) {
             var months = ["January", "February", "March", "April", "May", "June",
@@ -16,18 +21,17 @@ function Project(props) {
     }
 
     return (
-        <div className="book-card-item book-card-content my-3 u-box-shadow">
+        <div className="book-card-item book-card-content u-box-shadow">
             {/* <h5>Project Experiences</h5> */}
             <article>
                 <div className="header-information">
-                    <div className="title txt-project"><h6>{props.data.projectName}</h6></div>
-                    <div className="edit text-right">
-                        <span className="pr-3 text-success title-date">{formatDateToString(props.data.startDate)} - present </span>
-                        <span className="px-1"><FontAwesomeIcon icon={faEdit} /></span>
-                        {/* <span className="px-1"><FontAwesomeIcon icon={faUserMinus} /></span> */}
+                    <div className="header-information__left"><h6 className="header-information__title">{props.data.projectName}</h6></div>
+                    <div className="header-information__right">
+                        <p className="header-information__right-title">{formatDateToString(props.data.startDate)} - present </p>
+                        {isEdit ? <span className="px-1"><FontAwesomeIcon icon={faEdit} /></span> : ''}
                     </div>
                 </div>
-                <div className="px-3">
+                <div>
                     <section className="row row-inline">
                         <div className="title col-4"><p>Company</p></div>
                         <div className="content col-8"><p>{props.data.projectCompany}</p></div>

@@ -86,6 +86,10 @@
     border-radius: 16px;
     box-shadow: 0 9px 16px 0 rgba(65, 65, 65, 0.1);
 }
+
+.u-sm-mt-2 {
+    margin-top: 2rem;
+}
 /* /Utility */
 
 .o-main {
@@ -245,12 +249,21 @@
     --screen-ex: 1200px;
     --screen-max-width: 1200px;
 }
-
+.table--sm-responsive {
+    display: block;
+    overflow: scroll;
+}
 @media (min-width: 640px){
+    .table--sm-responsive {
+        display: table;
+    }
      
 }
      
 @media (min-width: 768px){
+    .u-sm-mt-2 {
+        margin-top: initial;
+    }
 
 }
     

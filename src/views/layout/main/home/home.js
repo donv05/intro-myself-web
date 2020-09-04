@@ -31,10 +31,10 @@ function Home() {
     <React.Fragment>
         <div className="row">
             {/* <React.Fragment> */}
-            <div className="col-12 col-sm-12 col-md-12 col-lg-6">
+            <div className="col-12 col-sm-12 col-md-6 col-lg-6">
                 <Skills/>
             </div>
-            <div className="col-12 col-sm-12 col-md-12 col-lg-6">
+            <div className="col-12 col-sm-12 col-md-6 col-lg-6 u-sm-mt-2">
                 <Introduction/>
             </div>
                 
@@ -43,7 +43,7 @@ function Home() {
         </div>
         <div className="project mt-3">
             <div className="project-header">
-                <h3 className="project-header__title book-card-header__title">Projects</h3>
+                <h3 className="project-header__title book-card-header__title u-sm-mt-2">Projects</h3>
             </div>
             <div className="book-card u-grid-container u-grid-container-column-2 u-grid-container-column-1">
                 {(projects && projects.data) ? projects.data.map((items) =>

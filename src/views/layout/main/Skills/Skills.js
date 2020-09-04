@@ -25,6 +25,9 @@ function Skills() {
     const [visible, setVisible] = useState(false);
     const [skills, setSkill] = useState(null);
     const [skillId, setSkillId] = useState(null);
+    const userInfo = JSON.parse(localStorage.getItem('userInformation'));
+    const roles = userInfo.user.roles;
+    const isEdit = roles.some((item) => [0, 1].includes(item.level));
 
     useEffect(() => {
         axios.get('/skills')
@@ -78,10 +81,6 @@ function Skills() {
     function handleCancel (e) {
         setVisible( false);
     };
-
-    // function disabledDate (current) {
-    //     return current && current.valueOf() > Date.now();
-    // }
 
     return (
         <React.Fragment>
@@ -155,12 +154,12 @@ function Skills() {
                 <h1 className="book-card-header__title">Skills</h1>
             </div>
             <div className="book-card-content u-box-shadow">
-                <table className="table mts-table">
+                <table className="table mts-table table--sm-responsive">
                     <thead>
                         <tr>
                             <th>Skill Name</th><th>Level</th>
                             <th style={{ width: '150px' }}>Experience</th>
-                            <th>Edit</th>
+                            {isEdit ? <th>Edit</th> : null}
                         </tr>
                     </thead>
                     <tbody>
@@ -173,11 +172,13 @@ function Skills() {
                                         <span>{item.year}</span>
                                     </div>
                                 </td>
-                                <td>
+                                {isEdit?
+                                 <td>
                                     <div className="mts-edit edit-resume-btn" onClick={() => {editRow(item._id)}}>
                                         <FontAwesomeIcon icon={faEdit} />
                                     </div>
-                                </td>
+                                </td>: ''}
+                                
                             </tr>
                         ): null}
                     </tbody>

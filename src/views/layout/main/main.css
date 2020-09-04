@@ -60,24 +60,14 @@ table thead tr th {
     padding-bottom: 0;
 }
 
-.header-information {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.header-information .title {
-    font-size: 16px;
-    width: 50%;
-}
-
-.header-information .edit {
-    width: 50%;
-}
-
 /* table  */
 
 .table {
     font-weight: initial;
     color: var(--u-txt-gray-color);
+}
+
+.table td, .table th {
+    border-top: 1px solid var(--u-color-white);
 }
 /* /table  */

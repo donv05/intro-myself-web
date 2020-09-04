@@ -54,6 +54,7 @@
 .header-content-wrapper__txt {
     color: var(--u-color-white);
     font-size: 1em;
+    padding: 0 2rem;
 }
 
 .header-wrapper__bar-icon {
