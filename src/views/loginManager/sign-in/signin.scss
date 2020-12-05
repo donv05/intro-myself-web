@@ -1,0 +1,41 @@
+@import "../../../sass/_function.scss";
+@import "../../../sass/_variable.scss";
+@import "../../../sass/components/form";
+
+.login-container {
+    height: 100%;
+    width: 100vw;
+
+    &--modify {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    &__content {
+        box-shadow: 0 9px 16px 0 rgba(65, 65, 65, 0.1);
+        background-color: $color-white-dark;
+    
+        min-height: 500px;
+        padding: 25px 20px 28px;
+        border-radius: 8px;
+        max-width: 22rem;
+        width: 22rem;
+    }
+    
+    &__title {
+        text-align: center;
+        margin: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: $color-grey-light;
+        background: -webkit-linear-gradient($color-primary-dark, $color-primary-light);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    &__title h1 {
+        text-transform: initial;
+    }
+
+}

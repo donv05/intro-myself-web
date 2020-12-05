@@ -1,0 +1,14 @@
+@mixin hover-zoom {
+    z-index: 20;
+    transform: scale(1.2, 1.2);
+}
+
+@mixin skew-container {
+    clip-path: polygon(0 20vh, 100% 0%, 100% 75ch, 0% 100%);
+    margin-top: -20vh;
+}
+
+@mixin zoom-in {
+    transform: scale(1.02);
+}
+

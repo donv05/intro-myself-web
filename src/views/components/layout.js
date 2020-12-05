@@ -7,6 +7,7 @@ import axios from '../../configurations/axiosConfig'
 import  { Redirect } from 'react-router-dom'
 import { toast } from 'react-toastify';
 export default class Dashboard extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -29,13 +30,14 @@ export default class Dashboard extends React.Component {
         for(let i in this.events) {
             window.addEventListener(this.events[i], this.resetTimeout)
         }
+        // debugger
         this.setTimeout();
     }
     
     
     warn() {
-        // console.log("You will be logged out automatically in 1 minute.");
     }
+
     clearTimeout() {
         if (this.warnTimeout) clearTimeout(this.warnTimeout);
     
@@ -54,24 +56,6 @@ export default class Dashboard extends React.Component {
 
     logout() {
         this.setState({ logginStatus: false });
-    }
-
-    componentDidMount() {
-        // axios.get('/users')
-        //     .then((result) => {
-        //         if (result) {
-        //             this.setState({
-        //                 isLoaded: true,
-        //                 items: result
-        //             });
-        //         }
-        //     })
-        //     .catch(function (error) {
-        //         toast.error("Error!")
-        //     })
-        //     .finally(function () {
-        //         // always executed
-        //     });
     }
     
     handleClickLogout = (event) => {

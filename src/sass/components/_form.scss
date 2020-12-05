@@ -1,0 +1,60 @@
+@import "../variable";
+@import "../components/button";
+
+.group-control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+
+    &__error-ms {
+        margin-bottom: unset;
+        margin-top: 0.5rem;
+        color: $color-red-dark;
+        font-size: 0.7rem;
+    }
+
+    &__title {
+        color: $color-eden-light;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: .5rem
+    }
+
+    &__asterisks {
+        color: $color-red-dark;
+    }
+
+    input {
+        height: 40px;
+        padding-left: 0.875rem;
+        font-size: 0.875rem;
+        border: 1px solid #b7b7b7;
+        border-radius: 4px;
+
+        &:focus {
+            border: unset;
+            outline: unset;
+            box-shadow: 0 0 1pt 1pt #11c1a1;
+        }
+
+        &::-webkit-input-placeholder {
+            /* Edge */
+            color: $color-grey-dark;
+        }
+
+        &::placeholder {
+            color: $color-grey-dark;
+        }
+
+        &button {
+            height: 40px;
+            border-radius: 4px;
+            border: 0px solid transparent;
+            outline: unset;
+            background: gradient($color-primary-light, $color-primary-dark);
+            font-size: 20px;
+            text-transform: uppercase;
+            color: $color-white;
+        }
+    }
+}

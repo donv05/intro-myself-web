@@ -4,15 +4,15 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import NoMatch from './views/layout/noMatch/noMatch'
+import NoMatch from './views/components/noMatch/noMatch'
 import { ToastContainer } from 'react-toastify';
 
-import './App.css';
+import './App.scss';
 // const chalk = require('chalk');
 // console.log(chalk.blue('Hello world! Do'));
 
 const SignInComponent = React.lazy(() => import('./views/loginManager/sign-in/signIn'));
-const DashboardComponent = React.lazy(() => import('./views/layout/layout'));
+const DashboardComponent = React.lazy(() => import('./views/components/layout'));
 
 function App() {
   return (

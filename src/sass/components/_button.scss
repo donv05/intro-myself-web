@@ -1,0 +1,21 @@
+@import "../variable";
+
+.btn {
+    margin-top: 0.5rem;
+    width: 100%;
+    padding: .8rem;
+    font-size: 1rem;
+
+    outline-color: unset;
+    border: unset;
+    border-radius: .25rem;
+
+    &--primary-gradient {
+        background: gradient($color-primary-light, $color-primary-light);
+    }
+
+    &--secondary-gradient {
+        background: gradient($color-secondary-light, $color-secondary-dark);
+    }
+
+}

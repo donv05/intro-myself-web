@@ -4,7 +4,7 @@ export default class Footer extends Component {
     render() {
         return (
             <div>
-                <footer className="Footer"> © CopyRight</footer>
+                <footer className="footer"> © CopyRight</footer>
             </div>
         )
     }

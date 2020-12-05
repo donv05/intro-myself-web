@@ -5,10 +5,9 @@ import * as serviceWorker from './serviceWorker';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import MomentUtils from '@date-io/moment';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 
-import './index.css';
+import './index.scss';
 
 ReactDOM.render(
   // <React.StrictMode>

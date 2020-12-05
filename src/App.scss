@@ -1,0 +1,74 @@
+@import '../src/sass/_variable.scss';
+@import '../src/sass/animation';
+@import '../src/sass/utilities';
+@import '../src/sass/components/table';
+
+:root{
+    /* break point  */
+    --screen-sm: 640px;
+    --screen-md: 768px;
+    --screen-lg: 992px;
+    --screen-ex: 1200px;
+    --screen-max-width: 1200px;
+}
+
+/* /Utility */
+.ant-btn {
+    border-color: #eae4e4;
+    border-radius: 4px;
+}
+
+
+.ant-btn-primary {
+    min-width: 80px;
+}
+
+.Row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* loader  */
+.loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 16px solid $color-white;
+    border-radius: 50%;
+    border-top: 16px solid $color-tertiary-light;
+    border-right: 16px solid $color-primary-light;
+    border-bottom: 16px solid $color-red-light;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+.lds-ripple {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 80px;
+    height: 80px;
+    transform: translate(-50%);
+}
+
+.lds-ripple div {
+    position: absolute;
+    border: 4px solid $color-red-light;
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.lds-ripple div:nth-child(2) {
+    animation-delay: -0.5s;
+}
+

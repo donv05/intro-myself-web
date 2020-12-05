@@ -1,10 +1,9 @@
+@import '../../../sass/variable';
+
 .content-layout {
     padding: 1.5rem 1rem;
     /* margin-bottom: 62px; */
-    background-color: #f4f4f4 !important;
-}
-.book-card {
-
+    background-color: $color-white;
 }
 
 .book-card-header__title {
@@ -16,9 +15,9 @@
 .book-card-content {
     font-size: 1rem;
     font-weight: 700;
-    color: var( --u-txt-gray-color);
+    color: $color-black;
     
-    background-color: var(--u-color-white);
+    background-color: $color-white;
     padding: 1em;
     margin: 0;
 }
@@ -40,7 +39,7 @@ table thead tr th {
     line-height: 1.85;
     letter-spacing: normal;
     text-align: left;
-    color: var(--u-txt-gray-color);
+    color: $color-grey-dark;
     margin: 0;
     padding-top: 0;
     padding-bottom: 0;
@@ -54,20 +53,8 @@ table thead tr th {
     line-height: 1.85;
     letter-spacing: normal;
     text-align: left;
-    color: var(--u-txt-gray-color);
+    color: $color-grey-dark;
     margin: 0;
     padding-top: 0;
     padding-bottom: 0;
 }
-
-/* table  */
-
-.table {
-    font-weight: initial;
-    color: var(--u-txt-gray-color);
-}
-
-.table td, .table th {
-    border-top: 1px solid var(--u-color-white);
-}
-/* /table  */

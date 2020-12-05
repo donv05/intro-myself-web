@@ -1,0 +1,17 @@
+@import "../variable";
+
+.table--sm-responsive {
+    display: block;
+    overflow: scroll;
+    width: 100%;
+    color: $color-black;
+
+    td, th {
+        border-top: 1px solid $color-white-light;
+        padding: .5rem 0rem;
+    }
+
+    @media (min-width: 640px){
+        display: table;  
+    }
+}

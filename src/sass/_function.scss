@@ -1,0 +1,3 @@
+@function gradient($first,$second) {
+    @return  linear-gradient(to right, $first, $second);
+}
