@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import './profile.css'
-import axios from '../../../../configurations/axiosConfig'
+import axios from '../../../configurations/axiosConfig'
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 

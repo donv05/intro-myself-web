@@ -5,12 +5,13 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import NoMatch from './views/components/noMatch/noMatch'
+import NoMatch from './components/noMatch/noMatch'
 import { ToastContainer } from 'react-toastify';
+
 import './App.scss';
 
-const SignInComponent = React.lazy(() => import('./views/loginManager/sign-in/signIn'));
-const DashboardComponent = React.lazy(() => import('./views/components/layout'));
+const SignInComponent = React.lazy(() => import('./components/loginManager/sign-in/signIn'));
+const DashboardComponent = React.lazy(() => import('./components/layout'));
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Router>
             <div className="u-main">
                 <Switch>
-                    <Route path="/web" component={DashboardComponent}>
+                    <Route path="/main" component={DashboardComponent}>
                     </Route>
                     <Route exact path="/login" component={SignInComponent}>
                     </Route>

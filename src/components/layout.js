@@ -3,7 +3,7 @@ import './layout.css';
 import Header from './header/header'
 import Footer from './footer/footer'
 import Main from './main/main'
-import axios from '../../configurations/axiosConfig'
+import axios from '../configurations/axiosConfig'
 import  { Redirect } from 'react-router-dom'
 import { toast } from 'react-toastify';
 export default class Dashboard extends React.Component {

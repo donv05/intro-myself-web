@@ -3,7 +3,7 @@ import './skills.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import moment from 'moment'
-import axios from '../../../../configurations/axiosConfig'
+import axios from '../../../configurations/axiosConfig'
 import { toast } from 'react-toastify';
 import { useForm, Controller} from 'react-hook-form';
 import {Modal, Button} from 'react-bootstrap';

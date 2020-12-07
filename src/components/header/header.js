@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useRef } from "react";
 import "./header.scss";
-import axios from "../../../configurations/axiosConfig";
+import axios from "../../configurations/axiosConfig";
 // eslint-disable-next-line no-unused-vars
 import { useHistory } from "react-router";
 

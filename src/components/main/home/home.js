@@ -4,7 +4,7 @@ import Project from '../project/project'
 import './home.css'
 import Introduction from '../introduction/introduction'
 import Skills from '../Skills/Skills'
-import axios from '../../../../configurations/axiosConfig'
+import axios from '../../../configurations/axiosConfig'
 import { toast } from 'react-toastify';
 
 function Home() {
