@@ -36,17 +36,48 @@ function Header() {
             // always executed
         });
     }
-    function sidenavToggle(isShow) {
-        console.log(jsSidenav.current)
-      setIsSidenav(isShow)
-    // var jsSidenav  = document.getElementById("jsSidenav");
-    // isShow ? jsSidenav.style.width = "100%" : jsSidenav.style.width = "0";
-    }
+
 
   return (
     <React.Fragment>
+    <div className="navigation">
+        <input type="checkbox" id="navigate-toggle" className="navigation__checkbox"></input>
+        <label class="navigation__button" for="navigate-toggle" >
+                <span class="navigation__icon"></span>
+        </label>
+        <div class="navigation__bg"></div>
+
+        <nav class="navigation__nav">
+            <ul class="navigation__list">
+                <li class="navigation__item">
+                    <a  className="navigation__link" href={`${match.url}/about-me`} >About me</a>
+                </li>
+                <li className="navigation__item">
+                    <a href="#" className="navigation__link" href={`${match.url}/about-me`}>About me</a>
+                </li>
+                <li className="navigation__item">
+                    <a href="#" className="navigation__link" href={`${match.url}/blog`}>blog</a>
+                </li>
+                <li className="navigation__item">
+                    <a href="#" className="navigation__link" href="#">More</a>
+                </li>
+            </ul>
+
+            <div className="navigation__sub-list">
+                <div className="navigation__sub-list navigation__sub-list--modifier">
+                    <a className="navigation__sub-list__link" 
+                    onClick={() => {
+                    setHiddenDro(true);
+                    }}
+                    href={`${match.url}/profile`}>Profile</a>
+                </div>
+                <div className="navigation__sub-list navigation__sub-list--modifier">
+                    <a className="navigation__sub-list__link" onClick={handleClickLogout}>Logout</a>
+                </div>
+            </div>
+        </nav>
+    </div>    
     <div className="page-header page-header--hover-delay">
-        
         <div className="header-wrapper header-wrapper--zoom-in-image">
             <div className="header-content-wrapper">
                 <h1 className="header-content-wrapper__title">TRUST</h1>
@@ -57,9 +88,6 @@ function Header() {
                     xứng đáng.
                 </div>
             </div>
-            
-            {/* toggle sidebar  */}
-            <div className="header-wrapper__bar-icon" onClick={() => {sidenavToggle(true)}}></div>
         </div>
         <div className="page-header-picture">
             {/* <picture>
@@ -68,38 +96,7 @@ function Header() {
             <div className="page-header-picture__content"></div>
         </div>
     </div>
-    <div id="jsSidenav" className={isSidenav? 'side-nav--show side-nav side-nav--modify' : 'w-0 side-nav side-nav--modify'} ref={jsSidenav}>
-        <div className="side-nav__header side-nav__header--modify">
-            <a className="side-nav__header-close" onClick={() => {sidenavToggle(false)}}></a>
-        </div>
-        <div className="side-nav__menu nav-menu">
-            <div className="nav-menu__item nav-menu__item--modifier">
-                <a className="nav-menu__link" href={`${match.url}/home`}>Home</a>
-            </div>
-            <div className="nav-menu__item nav-menu__item--modifier">
-                <a className="nav-menu__link" href={`${match.url}/about-me`}>About Me</a>
-            </div>
-            <div className="nav-menu__item nav-menu__item--modifier">
-                <a className="nav-menu__link" href={`${match.url}/blog`}>Blog</a>
-            </div>
-            <div className="nav-menu__item nav-menu__item--modifier">
-                <a className="nav-menu__link" href="#">More</a>
-            </div>
-        </div>
-
-        <div className="nav-sub-menu">
-        <div className="nav-sub-menu nav-sub-menu--modifier">
-                <a className="nav-sub-menu__link" 
-                onClick={() => {
-                setHiddenDro(true);
-                }}
-                href={`${match.url}/profile`}>Profile</a>
-            </div>
-            <div className="nav-sub-menu nav-sub-menu--modifier">
-                <a className="nav-sub-menu__link" onClick={handleClickLogout}>Logout</a>
-            </div>
-        </div>
-    </div>
+    
     </React.Fragment>
   );
 }

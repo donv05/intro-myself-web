@@ -1,4 +1,5 @@
 @import '../../../sass/variable';
+@import '../../../sass/navigation';
 
 .page-header {
     height: 100vh;
@@ -10,7 +11,6 @@
     }
 }
 
-
 .header-wrapper {
     position: absolute;
     width: 100%;
@@ -20,19 +20,6 @@
     &--zoom-in-image:hover + .page-header-picture .page-header_image {
         transform: scale(1.02);
         opacity: 0.9;
-    }
-
-    &_bar-icon {
-        background-image: url("/image/header/icon_bar.svg");
-        background-size: cover;
-        background-repeat: no-repeat;
-    
-        min-width: 40px;
-        min-height: 40px;
-        position: absolute;
-        top: 30px;
-        right: 30px;
-        // filter: invert();
     }
 }
 
@@ -57,7 +44,6 @@
     }
 }
 
-
 .page-header-picture {
     &__content{
         transition: all 0.3s;
@@ -78,85 +64,4 @@
                 url("/header-img-mid.jpg");
         }    
     }   
-}
-
-
-/* The side navigation menu */
-.side-nav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: $color-white-light; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-    z-index: 100;
-    display: none;
-
-    &--modify {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-
-    &--show {
-        width: 100%;
-        display: block;
-    }
-
-    &__header {
-        &--modify {
-            display: flex;
-            flex-direction: row-reverse;
-            margin-bottom: 2rem;   
-        }
-    }
-
-    &__header-close {
-        background-image: url("/image/header/clear.svg");
-        background-repeat: no-repeat;
-        width: 25px;
-        height: 25px;
-    }
-}
-
-.nav-menu {
-    &__item{
-        margin: 0;
-        display: block;
-        line-height: 1;
-
-        &--modifier {
-            font-size: 3rem;
-            margin-bottom: 4rem;
-            font-weight: 500;
-        }
-    }
-
-    &__link {
-        color: $color-grey-dark;
-    }
-}
-
-.nav-sub-menu {
-
-    &--modifier {
-        font-size: 1rem;
-        margin-bottom: 0.5rem;
-    }
-
-    &__link {
-        background: linear-gradient(to right,#dd2424,#dd2424 50%,#191919 50%,#191919 100%);
-        background-size: 200% auto;
-        background-position-x: 100%;
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        transition: 0.8s;
-        &:hover {
-            background-position-x: 0%;
-            color: transparent;
-        }
-    }
 }

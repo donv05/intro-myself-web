@@ -1,0 +1,121 @@
+@import "../../../../sass/variable";
+
+
+.timeline {
+    &__header {
+        text-align: center;
+    }
+    &__header-title{
+        margin-bottom: 2rem;
+    }
+
+    &__content {
+        position: relative;
+        max-width: var(--screen-max-width);
+        &:after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: $color-primary-light;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            @media screen and (max-width: 600px) {
+                left: 31px;
+            }
+        }  
+    }
+
+}
+
+.timeline-box {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: -12px;
+        background-color: white;
+        border: 2px solid #ec938b;
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+        box-shadow: 0 0 2px 2px #f5a97a, 0 0 2px 2px #edbfb0, 0px 0px 2px 3px #fef1ea;
+    
+    }
+
+    &--left {
+        left: 0;
+        &:before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+        @media screen and (max-width: 600px) {
+            &:after {
+                left: 18px;
+            }
+        }
+
+    }
+
+    &--right {
+        left: 50%;
+        &:before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+
+        &:after {
+            left: -12px;
+            @media screen and (max-width: 600px) {
+                left: 0%;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            left: 0%;
+        }
+    }
+
+    &__content {
+        padding: 20px 30px;
+        background-color: white;
+        position: relative;
+        border-radius: 6px;
+    }
+
+    @media screen and (max-width: 600px) {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+        
+        &:before {
+            left: 60px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+    }
+}
