@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './skills.css'
+import './skills.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import moment from 'moment'
@@ -110,22 +110,10 @@ function Skills() {
                             <Controller
                                 as={<DatePicker 
                                     autoOk="true"
-                                    // inputRef={register({ required: true })}
-                                    // disableToolbar
-                                    // variant="inline"
                                     cancelLabel=""
-                                    // rightArrowIcon="ReactNode"
                                     okLabel=""
                                     maxDate={new Date()}
                                     id={"experience"}
-                                    // inputVariant="outlined"
-                                    // label={"Appointment Date"}
-                                    // required={true}
-                                    // helperText={errors["experience"] && "Required..!!"}
-                                    // error={errors["experience"] ? true : false}
-                                    // KeyboardButtonProps={{
-                                    //     "aria-label": "change date"
-                                    // }}
                                     />}
                                 control={control}
                                 format="DD/MM/yyyy"
@@ -135,9 +123,6 @@ function Skills() {
                                 // Place your logic here
                                 return selected;
                                 }}
-                                // DateSelect value's name is selected
-                                // onChange={([selected]) => selected}
-                                // onChange={([selected]) => {return { value: selected };}}
                             />
                             <p className="text-danger mt-1">{errors.experience && 'Experience is required.'}</p>
                         </div>
@@ -149,38 +134,28 @@ function Skills() {
                 <Button variant="success" onClick={handleSubmit(handleOk)}>Save Changes</Button>
             </Modal.Footer>
         </Modal>
-        <div className="book-card">
-            <div className="book-card-header">
-                <h1 className="book-card-header__title">Skills</h1>
-            </div>
-            <div className="book-card-content u-box-shadow">
+        <div className="box-container">
+            <h1 className="heading-secondary">Skills</h1>
+            <div className="card-1 u-box-shadow">
                 <table className="table mts-table table--sm-responsive">
                     <thead>
                         <tr>
                             <th>Name</th><th>Level</th>
-                            <th style={{ width: '150px' }}>Experience</th>
-                            {isEdit ? <th>Edit</th> : null}
+                            <th style={{width:'150px'}}>Experience</th>
+                            {isEdit?<th>Edit</th>:null}
                         </tr>
                     </thead>
                     <tbody>
-                        {skills? skills.map((item) =>
-                            <tr key={item._id}>
-                                <td>{item.skillName}</td>
-                                <td>{item.level}</td>
-                                <td style={{ width: '150px' }}>
-                                    <div style={{ display: 'inline-flex'}}>
+                        {skills?skills.map((item)=><tr key={item._id}><td>{item.skillName}</td><td>{item.level}</td><td style={{width: '150px'}}>
+                                    <div style={{display:'inline-flex'}}>
                                         <span>{item.year}</span>
                                     </div>
-                                </td>
-                                {isEdit?
-                                 <td>
-                                    <div className="mts-edit edit-resume-btn" onClick={() => {editRow(item._id)}}>
+                                </td>{isEdit?<td>
+                                    <div className="mts-edit edit-resume-btn" onClick={()=>{editRow(item._id)}}>
                                         <FontAwesomeIcon icon={faEdit} />
                                     </div>
-                                </td>: ''}
-                                
-                            </tr>
-                        ): null}
+                                </td>:''}
+                            </tr>):null}
                     </tbody>
                 </table>
             </div>

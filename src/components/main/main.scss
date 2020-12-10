@@ -1,27 +1,9 @@
 @import '../../sass/variable';
 
-.content-layout {
+.main-box {
     padding: 1.5rem 1rem;
-    /* margin-bottom: 62px; */
     background-color: $color-white;
 }
-
-.book-card-header__title {
-    font-size: 2.5em;
-    font-weight: normal;
-    margin-bottom: 1rem;
-}
-
-.book-card-content {
-    font-size: 1rem;
-    font-weight: 700;
-    color: $color-black;
-    
-    background-color: $color-white;
-    padding: 1em;
-    margin: 0;
-}
-
 
 .Content {
     height: unset !important;

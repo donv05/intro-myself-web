@@ -1,0 +1,62 @@
+@import '../variable';
+.card {
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        // margin-bottom: 1rem;
+    }
+
+    &__left {
+        font-size: 1rem;
+        width: 50%;
+    }
+
+    &__right {
+        width: 50%;
+    }
+
+    // &__right-title {
+    //     font-size: 0.7rem;
+    //     text-transform: capitalize;
+    //     color: var(--u-orange-tiger);
+    //     text-align: end;
+    // }
+
+    &__title {
+        font-weight: 600;
+        font-size: 0.7rem;
+        text-transform: capitalize;
+        color: $color-secondary-dark;
+    }
+
+    &__content {
+        // border: 1px solid $color-grey-light;
+        // border-radius: 16px;
+        padding: 1rem;
+    }
+
+    &__section {
+        display: grid;
+        grid-template-columns: 10rem auto;
+        grid-gap: 5rem;
+
+    }
+
+    &__key {
+        font-size: $default-font-size;
+        font-weight: normal;
+        color: $color-grey-dark;
+    }
+
+    &__value {
+        font-weight: 500;
+        font-size: 1.1rem;
+        color: $color-eden-light;
+    }
+    
+}
+
+.card-1 {
+    padding: 16px;
+}

@@ -44,10 +44,12 @@
     }
 }
 
-.page-header-picture {
+.header-picture {
+    
     &__content{
         transition: all 0.3s;
         height: 95vh;
+        max-width: 100%;
         background-size: cover;
         background-position: top;
         background-repeat: no-repeat;

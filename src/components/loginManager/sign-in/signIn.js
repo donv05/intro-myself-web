@@ -70,7 +70,7 @@ function SignIn(props) {
                     <div className="login-container__title">
                         <h1>Sign in</h1>
                     </div>
-                    <form class="form-group">
+                    <form className="form-group">
                         <div className="group-control">
                             <label className="group-control__title" htmlFor="username">Username <span className="group-control__asterisks">*</span></label>
                             <input type="text" placeholder="Enter Username" name="username" ref={register({ required: true })} />

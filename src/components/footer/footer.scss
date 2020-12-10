@@ -1,10 +1,12 @@
+@import '../../sass/variable';
+
 .footer {
-  padding: 20px;
+  padding: 2rem;
   text-align: center;
   background: transparent;
   position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
-  border-top: 2px solid white;
+  border-top: 2px solid $color-white;
 }

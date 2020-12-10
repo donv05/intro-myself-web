@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import NoMatch from './components/noMatch/noMatch'
 import { ToastContainer } from 'react-toastify';
+// import layout from './components/layout'
 
 import './App.scss';
 
@@ -19,8 +20,11 @@ function App() {
         <Router>
             <div className="u-main">
                 <Switch>
-                    <Route path="/main" component={DashboardComponent}>
+                    <Route path="/web" component={DashboardComponent}>
                     </Route>
+                    {/* <Route path="/web">
+                      <layout></layout>
+                    </Route> */}
                     <Route exact path="/login" component={SignInComponent}>
                     </Route>
                     <Redirect from="*" to ="/login"></Redirect>

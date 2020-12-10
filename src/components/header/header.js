@@ -10,7 +10,7 @@ function Header() {
     // const [match, setMatch] = useState(useRouteMatch());
     // hot fix
     const match = {
-      url: './'
+      url: '.'
     }
     const [hiddenDro, setHiddenDro] = useState(false);
     const [info, setInfo] = useState(
@@ -20,6 +20,7 @@ function Header() {
 
     const jsSidenav = useRef(null);
     const [isSidenav, setIsSidenav] = useState(false);
+
     useEffect(() => {});
 
     function handleClickLogout(event) {
@@ -42,37 +43,34 @@ function Header() {
     <React.Fragment>
     <div className="navigation">
         <input type="checkbox" id="navigate-toggle" className="navigation__checkbox"></input>
-        <label class="navigation__button" for="navigate-toggle" >
-                <span class="navigation__icon"></span>
+        <label className="navigation__button" htmlFor="navigate-toggle" >
+                <span className="navigation__icon"></span>
         </label>
-        <div class="navigation__bg"></div>
+        <div className="navigation__bg"></div>
 
-        <nav class="navigation__nav">
-            <ul class="navigation__list">
-                <li class="navigation__item">
-                    <a  className="navigation__link" href={`${match.url}/about-me`} >About me</a>
+        <nav className="navigation__nav">
+            <ul className="navigation__list">
+                <li className="navigation__item">
+                    <a  className="navigation__link" href={`${match.url}/home`} >home</a>
                 </li>
                 <li className="navigation__item">
-                    <a href="#" className="navigation__link" href={`${match.url}/about-me`}>About me</a>
+                    <a  className="navigation__link" href={`${match.url}/about-me`}>About me</a>
                 </li>
                 <li className="navigation__item">
-                    <a href="#" className="navigation__link" href={`${match.url}/blog`}>blog</a>
-                </li>
-                <li className="navigation__item">
-                    <a href="#" className="navigation__link" href="#">More</a>
+                    <a className="navigation__link" href={`${match.url}/blog`}>blog</a>
                 </li>
             </ul>
 
             <div className="navigation__sub-list">
                 <div className="navigation__sub-list navigation__sub-list--modifier">
-                    <a className="navigation__sub-list__link" 
+                    <button className="navigation__sub-list__link u-btn-link " 
                     onClick={() => {
                     setHiddenDro(true);
                     }}
-                    href={`${match.url}/profile`}>Profile</a>
+                    href={`${match.url}/profile`}>Profile</button>
                 </div>
                 <div className="navigation__sub-list navigation__sub-list--modifier">
-                    <a className="navigation__sub-list__link" onClick={handleClickLogout}>Logout</a>
+                    <button className="navigation__sub-list__link u-btn-link " onClick={handleClickLogout}>Logout</button>
                 </div>
             </div>
         </nav>
@@ -89,11 +87,11 @@ function Header() {
                 </div>
             </div>
         </div>
-        <div className="page-header-picture">
+        <div className="header-picture">
             {/* <picture>
                 <img alt="img header" className="page-header-picture__content" src="/header-img.jpg" width="100%" height="100%" ></img>
             </picture> */}
-            <div className="page-header-picture__content"></div>
+            <div className="header-picture__content"></div>
         </div>
     </div>
     

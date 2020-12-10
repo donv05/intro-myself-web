@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./aboutMe.css";
+import "./aboutMe.scss";
 import PromoItem from "./promoItem/promoItem";
 
 function AboutMe() {
@@ -14,19 +14,19 @@ function AboutMe() {
   }
   return (
     <React.Fragment>
-        <div className="card-img-info card--border">
-            <div className="card-img-info--photo">
+        <div className="card-intro card-intro--border">
+            <div className="card-intro__img-box">
                 <div
-                    className="hp-inner"
+                    className="card-intro__img"
                     onMouseMove={hoverImg}
                     style={{
                     backgroundPosition: `calc(50% + ${divStyle.x}px) calc(50% + ${divStyle.y}px)`
                     }}
                 ></div>
             </div>
-            <div className="card-img-info-body">
-                <h2 className="card-img-info-body__title">Software Engineering</h2>
-                <h2 className="card-img-info-body__name">Đô Nguyễn</h2>
+            <div className="card-intro__body">
+                <h2 className="card-intro__title">Software Engineering</h2>
+                <h2 className="card-intro__name">Đô Nguyễn</h2>
                 <p>
                     My name is Đô, I'm 27 years old. I'm born in a small country it's
                     xxx.
@@ -36,54 +36,62 @@ function AboutMe() {
 
         <PromoItem></PromoItem>
 
-        <div className="card-info card--border">
-            <div className="card-info-description">
-                <h2 className="card-info-description__title">Skills</h2>
-                <div className="card-info-description__body card-info-description--body-grid">
-                    <div className="card-info-description__body-img">
-                        <img alt="img" src={'/image/logo/angular.png'}  className="icon-lg"/>
+        <div className="card-info card-info--border box-container">
+            <div className="card-info-des">
+                <h2 className="card-info-des__title heading-secondary">Skills</h2>
+                <div className="card-info-des__body card-info-des--body-grid">
+                    <div className="card-info-des__img-box">
+                        <img className="card-info-des__img icon-lg" width="100" height="100"  alt="img" src={'/image/logo/angular.jpg'} />
                     </div>
-                    <div className="card-info-description__body-img">
-                        <img alt="img" src={'/image/logo/nodejs.png'}  className="icon-lg"/>
+                    <div className="card-info-des__img-box">
+                        <img className="card-info-des__img icon-lg" width="100" height="100"  alt="img" src={'/image/logo/nodejs.jpg'} />
                     </div>
-                    <div className="card-info-description__body-img">
-                        <img alt="img" src={'/image/logo/js.png'}  className="icon-lg"/>
+                    <div className="card-info-des__img-box">
+                        <img className="card-info-des__img icon-lg" width="100" height="100" alt="img" src={'/image/logo/js.png'} />
                     </div>
-                    <div className="card-info-description__body-img">
-                        <img alt="img" src={'/image/logo/reactjs.png'}  className="icon-lg"/>
+                    <div className="card-info-des__img-box">
+                        <img className="card-info-des__img icon-lg"width="100" height="100"  alt="img" src={'/image/logo/reactjs.png'} />
                     </div>
-                    <div className="card-info-description__body-img">
-                        <img alt="img" src={'/image/logo/html.png'}  className="icon-lg"/>
+                    <div className="card-info-des__img-box">
+                        <img className="card-info-des__img icon-lg" width="100" height="100" alt="img" src={'/image/logo/html.png'} />
                     </div>
-                    <div className="card-info-description__body-img">
-                        <img alt="img" src={'/image/logo/css.png'}  className="icon-lg"/>
+                    <div className="card-info-des__img-box">
+                        <img className="card-info-des__img icon-lg" width="100" height="100" alt="img" src={'/image/logo/css.png'} />
                     </div>
-                    <div className="card-info-description__body-img">
-                        <img alt="img" src={'/image/logo/icon-express.png'}  className="icon-lg"/>
+                    <div className="card-info-des__img-box">
+                        <img className="card-info-des__img icon-lg" width="100" height="100" alt="img" src={'/image/logo/icon-express.png'} />
                     </div>
-                    <div className="card-info-description__body-img">
-                        <img alt="img" src={'/image/logo/boostrap.png'}  className="icon-lg"/>
+                    <div className="card-info-des__img-box">
+                        <img className="card-info-des__img icon-lg"width="100" height="100"  alt="img" src={'/image/logo/boostrap.png'} />
                     </div>
                 </div>
             </div>
         </div>
 
-        <div className="card-info card--border">
-            <div className="card-info-description">
-                <h2 className="card-info-description__title">Contact</h2>
-                <div className="card-info-description__body">
-                    <b>Phone</b>: <p>xxx</p>
-                    <b>Email</b>: <p>xxx</p>
-                    <b>Address</b>: <p>xxx</p>
-                    <b>Social Media</b>: <p>xxx</p>
+        <div className="card-info card-info--border box-container">
+            <div className="card-info-des">
+                <h2 className="card-info-des__title heading-secondary">Contact</h2>
+                <div className="card-info-des__body">
+                    <p class="card-info-des__tag">Phone: 
+                        <span class="card-info-des__txt">0813 285 634</span> 
+                    </p>
+                    <p class="card-info-des__tag">Email: 
+                        <span class="card-info-des__txt">Nguyen Van Do</span> 
+                    </p>
+                    <p class="card-info-des__tag">Address: 
+                        <span class="card-info-des__txt">12 District, Ho Chi Minh City</span> 
+                    </p>
+                    <p class="card-info-des__tag">Social Media: 
+                        <span class="card-info-des__txt">Facebook</span> 
+                    </p>
                 </div>
             </div>
         </div>
 
-        <div className="card-info card--border">
-            <div className="card-info-description">
-                <h2 className="card-info-description__title">Other</h2>
-                <div className="card-info-description__body">
+        <div className="card-info card-info--border box-container">
+            <div className="card-info-des">
+                <h2 className="card-info-des__title heading-secondary">Other</h2>
+                <div className="card-info-des__body">
                     <p> Can you work with me?</p>
                 </div>
             </div>

@@ -1,25 +1,26 @@
-// @use '../abstracts/variables' as *;
-// .heading-secondary {
-//     font-size: 2.5rem;
-//     text-transform: uppercase;
-//     letter-spacing: 0.2rem;
-//     background-image: -webkit-linear-gradient(to right, $color-primary-light, $color-primary-dark);
-//     background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
-//     -webkit-background-clip: text;
-//     -webkit-text-fill-color: transparent;
-//     color: transparent;
-//     transition: all .2s;
+@import './variable.scss';
 
-//     &:hover {
-//         transform: skewX(0) skewY(1.1deg);
-//     }
-// }
+.heading-secondary {
+    font-size: 2.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    background-image: -webkit-linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    transition: all .2s;
 
-// .heading-tertiary {
-//     text-transform: uppercase;
-//     font-size: $default-font-size;
-// }
+    &:hover {
+        transform: skewX(0) skewY(1.1deg);
+    }
+}
 
-// .paragraph {
-//     font-size: $default-font-size;
-// }
+.heading-tertiary {
+    text-transform: uppercase;
+    font-size: $default-font-size;
+}
+
+.paragraph {
+    font-size: $default-font-size;
+}

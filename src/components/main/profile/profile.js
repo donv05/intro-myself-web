@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import './profile.css'
+import './profile.scss'
 import axios from '../../../configurations/axiosConfig'
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
@@ -21,7 +21,6 @@ function Profile(props) {
     }
   ); // initialise the hook
   
-
   //   const handleChange = handleChange;
   function handleUserChange(data) {
     let formData = new FormData()
